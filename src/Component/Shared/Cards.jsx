@@ -3,7 +3,7 @@ import Butoon from "./Butoon";
 
 
 
-const Card = ({item}) => {
+const Cards = ({item}) => {
  const {biodataType,profileImageLink,permanentDivision,occupation,age,_id}=item
 
     return (
@@ -32,4 +32,4 @@ const Card = ({item}) => {
 );
 
 }
-export default Card;
+export default Cards;

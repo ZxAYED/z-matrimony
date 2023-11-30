@@ -3,7 +3,7 @@ import img from '../../assets/logo.webp';
 
 export const Footer = () => {
   return (
-    <div className="bg-[#f0f0f0]">
+    <div className="bg-[#f0f0f0] mt-28">
       <div className="container py-8 px-4 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="mb-4 md:col-span-2 lg:col-span-1">

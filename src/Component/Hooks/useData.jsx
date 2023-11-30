@@ -4,6 +4,7 @@ import {
   } from '@tanstack/react-query'
 import useAxiosPublic from './useAxiosPublic';
 import { useEffect, useState } from 'react';
+
 const useData = () => {
     const axiosPublic=useAxiosPublic()
     const [premiumData, setData] = useState([]);
@@ -17,6 +18,16 @@ const useData = () => {
             return res.data
         }
     })
+    const male =items.filter(item=>{
+     
+        return item.biodataType === 'Male'
+         
+     })
+    const female =items.filter(item=>{
+     
+        return item.biodataType === 'Female'
+         
+     })
     
    useEffect(()=>{
     const premiumDatas =items.filter(item=>{
@@ -32,7 +43,7 @@ const useData = () => {
  
 
    },[])
-    return [items,loading,refetch,premiumData]
+    return [items,loading,refetch,premiumData,male,female]
 };
 
 export default useData;
