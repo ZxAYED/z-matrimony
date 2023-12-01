@@ -5,6 +5,7 @@ import Biodatas from "../Biodatas/Biodatas";
 import SingleCard from "../Home/SingleCard";
 import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
+import Checkout from "../Biodatas/Checkout";
 
 
 
@@ -34,6 +35,11 @@ import Register from "../Authentication/Register";
             path:'/singleCard/:id',
             element:<SingleCard/>,
             loader: ({params}) => fetch(`http://localhost:5000/singleCard/${params.id}`)
+        },
+        {
+            path:'/checkout/:id',
+            element:<Checkout/>,
+            loader: ({params}) => fetch(`http://localhost:5000/checkout/${params.id}`)
         },
       ]
     },

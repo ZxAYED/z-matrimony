@@ -36,7 +36,7 @@ const Register = () => {
             console.log(err);
         })
         axiosPublic.post('/users',item)
-        .then(res=> toast(`${item.UserName} ID created successFully`, {
+        .then(res=> toast.success(`${item.UserName} ID created successFully`, {
             position: "top-right",
             autoClose: 2000,
             hideProgressBar: false,

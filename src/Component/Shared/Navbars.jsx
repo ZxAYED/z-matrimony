@@ -2,10 +2,13 @@ import logo from '../../assets/logo.webp'
 import Headroom from 'react-headroom';
 import { NavLink } from 'react-router-dom';
 import Butoon from './Butoon';
+import { useContext } from 'react';
+import { AuthContext } from '../Authentication/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Navbars = () => {
-
-  const user =false
+const {user, logOut} =useContext(AuthContext)
+const image =user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
     const navlinks =<>
   
     <NavLink to='/' className={({ isActive, isPending }) =>
@@ -32,6 +35,22 @@ const Navbars = () => {
  
     
     </>
+
+    const handleLogOut=()=>{
+      logOut()
+      .then(res=>{
+        toast.success(`Log Out successFull`, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          })
+      })
+    }
     return (
         <Headroom>
 
@@ -67,7 +86,7 @@ const Navbars = () => {
  <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
 
 <div className="w-10 lg:w-16  rounded-full">
-     <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+     <img alt="User profile" src={image} />
    </div>
  </div>
  <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
@@ -78,7 +97,7 @@ const Navbars = () => {
      </a>
    </li>
    <li><a>Settings</a></li>
-   <li><a>Logout</a></li>
+   <button onClick={handleLogOut}>Logout</button>
  </ul>
 </div>
 }

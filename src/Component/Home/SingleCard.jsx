@@ -5,7 +5,7 @@ import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { toast } from "react-toastify";
 import useData from "../Hooks/useData";
 import AddvetiseCard from "./AddvetiseCard";
-import Cards from "../Shared/Cards";
+
 
 
 const SingleCard = () => {
@@ -15,7 +15,7 @@ const SingleCard = () => {
     const [items, loading, refetch, premiumData, male, female] = useData()
 
     const axiosSecure = useAxiosSecure()
-    const { biodataType, profileImageLink, permanentDivision, occupation, age, _id, contactEmail, dateOfBirth, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, fathersName, height, mothersName, name, phoneNumber, premiumMember, presentDivision, race, weight } = data
+    const { biodataType, profileImageLink,biodataId, permanentDivision, occupation, age, _id, contactEmail, dateOfBirth, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, fathersName, height, mothersName, name, phoneNumber, premiumMember, presentDivision, race, weight } = data
     const genderData = items.filter(item => item.biodataType.toLowerCase() === biodataType.toLowerCase())
   
     const handleBookmark = () => {
@@ -111,9 +111,10 @@ const SingleCard = () => {
 
 
                         </div>
+                       
                         <div className="flex gap-6 justify-center items-center ">
-                            <Butoon heading='Request Contact'></Butoon>
-
+                        <Link to={`/checkout/${_id}`}>   <Butoon heading='Request Contact'></Butoon></Link>
+                        {/* to={`/checkout/${biodataId}`} */}
                             <button onClick={() => handleBookmark()} className="bg-[#00cc66] my-5 text-white  btn hover:bg-[#4a90e2] border-none "> Add to bookmark <FaRegBookmark /></button>
                         </div>
                     </div>
