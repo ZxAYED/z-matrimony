@@ -7,14 +7,16 @@ import { useEffect, useState } from 'react';
 
 const useData = () => {
     const axiosPublic=useAxiosPublic()
+const [loading,setLoading]=useState()
     const [premiumData, setData] = useState([]);
  
  
 
-    const {data:items=[], isPending:loading,refetch}=useQuery({
+    const {data:items=[], isPending,refetch}=useQuery({
         queryKey:['items'],
         queryFn:async()=>{
             const res=await axiosPublic.get('/cards')
+            setLoading(isPending)
             return res.data
         }
     })
@@ -37,7 +39,7 @@ const useData = () => {
      })
     const sortedPremiumData = premiumDatas.sort((a, b) => a.age - b.age);
   
-
+setLoading(true)
 
     setData(sortedPremiumData);
  

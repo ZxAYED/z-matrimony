@@ -3,6 +3,8 @@ import Root from "./Root";
 import Home from "../Home/Home";
 import Biodatas from "../Biodatas/Biodatas";
 import SingleCard from "../Home/SingleCard";
+import Login from "../Authentication/Login";
+import Register from "../Authentication/Register";
 
 
 
@@ -19,6 +21,14 @@ import SingleCard from "../Home/SingleCard";
         {
             path:'/Biodatas',
             element:<Biodatas/>,
+        },
+        {
+            path:'/Login',
+            element:<Login/>,
+        },
+        {
+            path:'/Register',
+            element:<Register/>,
         },
         {
             path:'/singleCard/:id',
