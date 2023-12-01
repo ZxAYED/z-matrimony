@@ -1,22 +1,70 @@
 import { useForm } from 'react-hook-form';
 import img from '../../assets/login.gif'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from './AuthProvider';
+import { toast } from 'react-toastify';
 
 const Login = () => {
+    const navigate=useNavigate()
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { handleSignIn,
+        handleGoogle}=useContext(AuthContext)
   const onSubmit = data => {
-    
-    
+    const email =data.email
+    const password =data.password
+    handleSignIn(email,password)
+    .then(res=>{toast.success(`Logged in successFully`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        })
+        navigate('/');
+
+    })
+    .catch(err=>{
+        toast.error(`${err}`, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            })
+    })
     
     
     console.log(data)
+}
+const google=()=>{
+    handleGoogle()
+    .then(res=>{console.log(res)
+        toast.success(`Logged in successFully`, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            })
+            navigate('/');})
+    
 }
 
 
     return (
         <div>
             <section>
-  <div className=" mx-auto max-w-7xl flex  flex-col lg:flex-row-reverse justify-center items-center sm:px-6 md:px-12 lg:px-24 ">
+  <div className=" mx-auto max-w-7xl flex  flex-col-reverse lg:flex-row-reverse justify-center items-center sm:px-6 md:px-12 lg:px-24 ">
 
         <div>
 
@@ -70,7 +118,7 @@ const Login = () => {
                             </div>
                         </div>
                         <div>
-                            <button type="submit" className="w-full items-center block px-10 py-3.5 text-base font-medium bg-[#ff3366]  text-center  text-white transition duration-500 ease-in-out transform  shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                            <button onClick={google} className="w-full items-center block px-10 py-3.5 text-base font-medium bg-[#ff3366]  text-center  text-white transition duration-500 ease-in-out transform  shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                                 <div className="flex items-center justify-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" className="w-6 h-6" viewBox="0 0 48 48">
                                         <defs>
@@ -102,7 +150,8 @@ const Login = () => {
 
 
         </div>
-        <div className="w-full bg-[#ff3366] rounded-2xl px-6 py-3">         
+        <div className="w-full bg-[#ff3366] rounded-2xl mt-10 lg:mt-0  px-6 py-3">
+        <h1 className="text-3xl text-white text-center my-6 font-bold">Welcome Back ! </h1>          
           <img className="object-cover h-full  bg-cover rounded-l-lg" src={img} alt=""/>
     </div>
   </div>

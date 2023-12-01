@@ -19,9 +19,11 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { router } from './Component/Layout/Layout.jsx';
+import AuthProvider from './Component/Authentication/AuthProvider.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <AuthProvider>
     <QueryClientProvider client={queryClient}>
       <ToastContainer
         position="top-right"
@@ -38,5 +40,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
       <RouterProvider router={router} />
     </QueryClientProvider>
+    </AuthProvider>
   </React.StrictMode>,
 )
