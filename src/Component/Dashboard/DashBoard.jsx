@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../Authentication/AuthProvider";
 import { toast } from "react-toastify";
-
+import logo from '../../assets/logo.webp'
 
 const DashBoard = () => {
     const { logOut } = useContext(AuthContext)
@@ -24,16 +24,20 @@ const DashBoard = () => {
     return (
         <div className="flex ">
             <section className="w-[16%]   bg-[#ff3366] min-h-screen">
-                <div className="flex flex-col pt-10  items-left pl-10">
+                  <div className='flex justify-center  pt-5 items-center gap-2'>
+        <img className='w-10 h-10 rounded-[50%] object-cover' src={logo} alt="" />
+    <a className="btn btn-ghost  text-white text-2xl">TaqWaMate</a></div>
+
+                <div className="flex flex-col   items-left pl-10">
                     <h1 className="text-xl font-black my-6 text-white ">Dashboard Routes  </h1>
                     <p className='hover:text-white my-4
  ' > <NavLink to='/Dashboard' className={({ isActive, isPending }) =>
                             isPending ? " pending" : isActive ? " btn  bg-[#4a90e2] border-none hover:text-white" : "bg-[#00cc66] btn border-none hover:text-white"
-                        }>Edit Bio-Data</NavLink></p>
+                        }>Create Bio-Data</NavLink></p>
                     <p className='hover:text-white my-4
  '>      <NavLink to='/Dashboard/ViewBioData' className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? " btn hover:text-white bg-[#4a90e2] border-none" : "bg-[#00cc66] btn border-none hover:text-white"
-                        }>View Bio-data</NavLink></p>
+                        }>Update Bio-data</NavLink></p>
                     <p className='hover:text-white my-4
  '>      <NavLink to='/Dashboard/MyContactReq' className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? "btn hover:text-white bg-[#4a90e2] border-none" : "bg-[#00cc66] btn border-none hover:text-white"
@@ -52,7 +56,7 @@ const DashBoard = () => {
                 </div>
 
             </section>
-            <section className="w-[84%] mx-auto">
+            <section className="w-[84%]  mx-auto">
                 <Outlet></Outlet>
             </section>
 

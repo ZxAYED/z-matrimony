@@ -9,6 +9,8 @@ import { toast } from 'react-toastify';
 const Navbars = () => {
 const {user, logOut} =useContext(AuthContext)
 const image =user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+
+// console.log(user);
     const navlinks =<>
   
     <NavLink to='/' className={({ isActive, isPending }) =>

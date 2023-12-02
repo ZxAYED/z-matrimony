@@ -51,7 +51,7 @@ import MyContactReq from "../Dashboard/MyContactReq";
     },
     {
         path:'/Dashboard',
-        element:<DashBoard></DashBoard>,
+        element:<PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
         children:[
             {
                 path:'/Dashboard',

@@ -31,7 +31,7 @@ setView(SameEmail)
 
 },[])
 
-console.log(view);
+console.log(view?.Role);
     const { biodataType, profileImageLink,biodataId, permanentDivision, occupation, age, _id, contactEmail, dateOfBirth, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, fathersName, height, mothersName, name, phoneNumber, premiumMember, presentDivision, race, weight } = data
     const genderData = items.filter(item => item.biodataType.toLowerCase() === biodataType.toLowerCase())
   

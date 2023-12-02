@@ -3,12 +3,12 @@ import {
  
   } from '@tanstack/react-query'
 import useAxiosPublic from './useAxiosPublic';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 
 const useData = () => {
     const axiosPublic=useAxiosPublic()
 const [loading,setLoading]=useState()
-    const [premiumData, setData] = useState([]);
+    
  
  
 
@@ -31,21 +31,11 @@ const [loading,setLoading]=useState()
          
      })
     
-   useEffect(()=>{
-    const premiumDatas =items.filter(item=>{
-     
-        return item.premiumMember === 'yes'
-         
-     })
-    const sortedPremiumData = premiumDatas.sort((a, b) => a.age - b.age);
-  
-setLoading(true)
-
-    setData(sortedPremiumData);
+ 
  
 
-   },[])
-    return [items,loading,refetch,premiumData,male,female]
+
+    return [ items,loading,refetch,male,female ]
 };
 
 export default useData;
