@@ -1,64 +1,56 @@
 import { useContext } from "react";
 import useData from "../Hooks/useData";
 import { AuthContext } from "../Authentication/AuthProvider";
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
+
+
+
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { Audio } from "react-loader-spinner";
 
-const PrivateRoute = () => {
-    const[ loading]=useData()
-    const {loading:loading2,user}=useContext(AuthContext)
+const PrivateRoute = ({ children }) => {
+    const [loading] = useData()
+    const navigate = useNavigate()
+    const location = useLocation()
+    const { loading: loading2, user } = useContext(AuthContext)
+    if (user) {
+        return children
+    }
+    if (loading || loading2) {
 
-if(loading || loading2){
-   
-  
-<div className="flex flex-col w-1/2 gap-5 p-2 mx-auto bg-white shadow-lg select-none sm:p-4 sm:h-64 rounded-2xl sm:flex-row ">
-    <div className="bg-gray-200 h-52 sm:h-full sm:w-72 rounded-xl animate-pulse">
-    </div>
-    <div className="flex flex-col flex-1 gap-5 sm:p-2">
-        <div className="flex flex-col flex-1 gap-3">
-            <div className="w-full bg-gray-200 animate-pulse h-14 rounded-2xl">
+        return <>
+            <div className="flex flex-col justify-center items-center w-1/2 gap-5 p-2 mx-auto bg-white shadow-lg select-none sm:p-4 sm:h-64 rounded-2xl sm:flex-row ">
+                <div className="bg-gray-200 h-52 sm:h-full sm:w-72 rounded-xl animate-pulse">
+                </div>
+                <div className="flex flex-col flex-1 gap-5 sm:p-2">
+                    <div className="flex flex-col flex-1 gap-3">
+                        <div className="w-full bg-gray-200 animate-pulse h-14 rounded-2xl">
+                        </div>
+                        <div className="w-full h-3 bg-gray-200 animate-pulse rounded-2xl">
+                        </div>
+                        <div className="w-full h-3 bg-gray-200 animate-pulse rounded-2xl">
+                        </div>
+                        <div className="w-full h-3 bg-gray-200 animate-pulse rounded-2xl">
+                        </div>
+                        <div className="w-full h-3 bg-gray-200 animate-pulse rounded-2xl">
+                        </div>
+                    </div>
+                    <div className="flex gap-3 mt-auto">
+                        <div className="w-20 h-8 bg-gray-200 rounded-full animate-pulse">
+                        </div>
+                        <div className="w-20 h-8 bg-gray-200 rounded-full animate-pulse">
+                        </div>
+                        <div className="w-20 h-8 ml-auto bg-gray-200 rounded-full animate-pulse">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="w-full h-3 bg-gray-200 animate-pulse rounded-2xl">
-            </div>
-            <div className="w-full h-3 bg-gray-200 animate-pulse rounded-2xl">
-            </div>
-            <div className="w-full h-3 bg-gray-200 animate-pulse rounded-2xl">
-            </div>
-            <div className="w-full h-3 bg-gray-200 animate-pulse rounded-2xl">
-            </div>
-        </div>
-        <div className="flex gap-3 mt-auto">
-            <div className="w-20 h-8 bg-gray-200 rounded-full animate-pulse">
-            </div>
-            <div className="w-20 h-8 bg-gray-200 rounded-full animate-pulse">
-            </div>
-            <div className="w-20 h-8 ml-auto bg-gray-200 rounded-full animate-pulse">
-            </div>
-        </div>
-    </div>
-</div>
-
-  //   <Audio
-  //   height="80"
-  //   width="80"
-  //   radius="9"
-  //   color="green"
-  //   ariaLabel="loading"
-  //   wrapperStyle
-  //   wrapperClass
-  // />
-
-
-}
 
 
 
+        </>
+    }
 
-
-
-
-
+    return <Navigate to='/Login' state={{ from: location }} replace></Navigate>
 
 
 

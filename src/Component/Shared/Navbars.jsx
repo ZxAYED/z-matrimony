@@ -19,6 +19,13 @@ const image =user?.photoURL || "https://daisyui.com/images/stock/photo-153452874
     <NavLink to='/Biodatas' className={({ isActive, isPending }) =>
     isPending ? "pending" : isActive ? "bg-[#00cc66] btn    hover:bg-[#4a90e2] border-none"  : ""
   }><li  className='hover:text-white'>Biodatas</li></NavLink>
+    
+   {
+    user &&
+    <NavLink to='/Dashboard' className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "bg-[#00cc66] btn    hover:bg-[#4a90e2] border-none"  : ""
+  }><li  className='hover:text-white'>DashBoard</li></NavLink>
+   }
 
 
     <NavLink to='/About' className={({ isActive, isPending }) =>

@@ -14,9 +14,9 @@ const Checkout = () => {
     const handleRequest=()=>{
        
         const userInfo={
-            biodataType, profileImageLink,biodataId, permanentDivision, occupation, age, _id, contactEmail, dateOfBirth, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, fathersName, height, mothersName, name, phoneNumber, premiumMember, presentDivision, race, weight,userEmail:email,
+            biodataType, profileImageLink,biodataId, permanentDivision, occupation, age, _id, contactEmail, dateOfBirth, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, fathersName, height, mothersName, name, phoneNumber, premiumMember, presentDivision, race, weight, 
         }
-        // `https://zayed-rizkshare-server.vercel.app/RizkShare/ManageFoods/?email=${user?.email}
+       
         axiosSecure.post('/requested',userInfo)
         .then(res=>{
             console.log(res.data)

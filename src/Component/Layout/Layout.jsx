@@ -6,6 +6,12 @@ import SingleCard from "../Home/SingleCard";
 import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
 import Checkout from "../Biodatas/Checkout";
+import PrivateRoute from "../Shared/PrivateRoute";
+import DashBoard from "../Dashboard/DashBoard";
+import EditBioData from "../Dashboard/EditBioData";
+import ViewBiodata from "../Dashboard/ViewBiodata";
+import MyContactReq from "../Dashboard/MyContactReq";
+
 
 
 
@@ -33,15 +39,34 @@ import Checkout from "../Biodatas/Checkout";
         },
         {
             path:'/singleCard/:id',
-            element:<SingleCard/>,
+            element:<PrivateRoute><SingleCard/></PrivateRoute>,
             loader: ({params}) => fetch(`http://localhost:5000/singleCard/${params.id}`)
         },
         {
             path:'/checkout/:id',
-            element:<Checkout/>,
+            element:<PrivateRoute><Checkout/></PrivateRoute>,
             loader: ({params}) => fetch(`http://localhost:5000/checkout/${params.id}`)
         },
       ]
     },
+    {
+        path:'/Dashboard',
+        element:<DashBoard></DashBoard>,
+        children:[
+            {
+                path:'/Dashboard',
+                element:<EditBioData></EditBioData>
+            },
+            {
+                path:'/Dashboard/ViewBioData',
+                element:<ViewBiodata/>
+            },
+            {
+                path:'/Dashboard/MyContactreq',
+                element:<MyContactReq/>
+            },
+        ]
+
+    }
   ]);
   

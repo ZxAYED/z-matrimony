@@ -22,13 +22,15 @@ const Register = () => {
         })
       if(res.data.success){
         const item={
-            UserName:res.data.name,
-            UserEmail:res.data.email,
-            password:res.data.password,
+            UserName:data.name,
+            UserEmail:data.email,
+            password:data.password,
             Image:res.data.data.display_url,
+            Role :'user'
             
         }
-        handleRegister(res.data.email,res.data.password)
+       
+        handleRegister(data.email,data.password)
         .then(res=>{
             console.log(res);
         })

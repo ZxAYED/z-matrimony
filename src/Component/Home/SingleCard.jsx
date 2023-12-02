@@ -5,16 +5,33 @@ import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { toast } from "react-toastify";
 import useData from "../Hooks/useData";
 import AddvetiseCard from "./AddvetiseCard";
+import { useContext } from "react";
+import { AuthContext } from "../Authentication/AuthProvider";
+import { useState } from "react";
+import { useEffect } from "react";
 
 
 
 const SingleCard = () => {
+    const [view , setView]=useState()
+const {user}=useContext(AuthContext)
 
     //TODO :ADD SOME ICONS TO EACH SECTIONS LIKE CALL EMAIL ICONS
     const data = useLoaderData()
     const [items, loading, refetch, premiumData, male, female] = useData()
-
     const axiosSecure = useAxiosSecure()
+
+useEffect(()=>{
+    axiosSecure.get('/users')
+.then(res=>{
+const SameEmail =res.data.find(item=>item.UserEmail===user.email)
+setView(SameEmail)
+
+})
+
+},[])
+
+console.log(view);
     const { biodataType, profileImageLink,biodataId, permanentDivision, occupation, age, _id, contactEmail, dateOfBirth, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, fathersName, height, mothersName, name, phoneNumber, premiumMember, presentDivision, race, weight } = data
     const genderData = items.filter(item => item.biodataType.toLowerCase() === biodataType.toLowerCase())
   

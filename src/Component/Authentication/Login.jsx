@@ -1,12 +1,14 @@
 import { useForm } from 'react-hook-form';
 import img from '../../assets/login.gif'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from './AuthProvider';
 import { toast } from 'react-toastify';
 
 const Login = () => {
     const navigate=useNavigate()
+    const location =useLocation()
+    const from =location.state?.from?.pathname || '/'
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const { handleSignIn,
         handleGoogle}=useContext(AuthContext)
@@ -24,7 +26,7 @@ const Login = () => {
         progress: undefined,
         theme: "light",
         })
-        navigate('/');
+      navigate(from,{replace:true})
 
     })
     .catch(err=>{
@@ -39,9 +41,9 @@ const Login = () => {
             theme: "light",
             })
     })
+   
     
     
-    console.log(data)
 }
 const google=()=>{
     handleGoogle()
