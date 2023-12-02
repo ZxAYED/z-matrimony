@@ -1,14 +1,13 @@
 import logo from '../../assets/logo.webp'
 import Headroom from 'react-headroom';
 import { NavLink } from 'react-router-dom';
-import Butoon from './Butoon';
+
 import { useContext } from 'react';
 import { AuthContext } from '../Authentication/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Navbars = () => {
 const {user, logOut} =useContext(AuthContext)
-const image =user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
 
 // console.log(user);
     const navlinks =<>
@@ -95,7 +94,7 @@ const image =user?.photoURL || "https://daisyui.com/images/stock/photo-153452874
  <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
 
 <div className="w-10 lg:w-16  rounded-full">
-     <img alt="User profile" src={image} />
+     <img alt="User profile" src={user?.photoURL} />
    </div>
  </div>
  <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">

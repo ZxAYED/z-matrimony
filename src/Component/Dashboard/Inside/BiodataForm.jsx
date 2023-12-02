@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 import Butoon from '../../Shared/Butoon';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Authentication/AuthProvider';
 import useAxiosSecure from './../../Hooks/useAxiosSecure';
 
@@ -13,16 +13,20 @@ import useAxiosSecure from './../../Hooks/useAxiosSecure';
 
 
 const BiodataForm = () => {
-  
+  const [data2,setData]=useState()
     const AxiosSecure=useAxiosSecure()
- 
-    const {user}=useContext(AuthContext)
-   
-  
 
+    const {user}=useContext(AuthContext)
+   useEffect(()=>{
+    AxiosSecure.get('/cards')
+    .then(res=>{setData(res.data)})
+  
+   },[])
+//    const biodataId=data2.length
     const handleUpdate =e=>{
         e.preventDefault()
         const form = e.target
+       
         const biodataType =form.biodatatype.value;
         const name =form.name.value;
         const profileImageLink=form.image.value;
@@ -43,7 +47,7 @@ const BiodataForm = () => {
         const contactEmail=user.email
         const premiumMember ="no"
         const status ='available'
-   const data={   fathersName,race,age,occupation,dateOfBirth,weight,height,profileImageLink,name,biodataType,status,
+   const data={ biodataId,  fathersName,race,age,occupation,dateOfBirth,weight,height,profileImageLink,name,biodataType,status,
         mothersName,
         permanentDivision,
         presentDivision,
@@ -164,6 +168,11 @@ const BiodataForm = () => {
     <div className="relative z-0 w-full mb-6 group">
         <input type="text" name="Mobile"  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-yellow-500 focus:outline-none focus:ring-0 focus:border-yellow-600 peer" placeholder=" " required />
         <label  className="peer-focus:font-medium absolute text-sm text-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-yellow-600 peer-focus:dark:text-yellow-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Mobile Number :</label>
+    </div>
+    <div className="relative z-0 w-full mb-6 group">
+        <input type="text" name="biodataId"  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 disabled dark:focus:border-yellow-500 focus:outline-none focus:ring-0 focus:border-yellow-600 peer" placeholder=" " required />
+        <label  className="peer-focus:font-medium absolute text-sm text-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-yellow-600 peer-focus:dark:text-yellow-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Bio-data Id :  </label>
+        {/* {biodataId}  */}
     </div>
    
   </div>

@@ -8,7 +8,7 @@ const Stat = (male,premiumData,female) => {
           <div>
             <div className="flex ">
               <h6 className="mr-2 text-3xl font-bold text-deep-purple-accent-400">
-                Premium Users: <span className="text-[#ff3366]">  {premiumData.length}</span>
+                Premium Users: <span className="text-[#ff3366]">  {premiumData?.length}</span>
             
               </h6>
               <div className="flex items-center justify-center rounded-full bg-teal-accent-400 w-7 h-7">
@@ -35,7 +35,7 @@ const Stat = (male,premiumData,female) => {
           <div>
             <div className="flex">
               <h6 className="mr-2 text-3xl  font-bold text-deep-purple-accent-400">
-               Total Male-biodatas: <span className="text-[#ff3366]">   {male.length}</span>
+               Total Male-biodatas: <span className="text-[#ff3366]">   {male?.length}</span>
               
               </h6>
               <div className="flex items-center justify-center rounded-full bg-teal-accent-400 w-7 h-7">
@@ -62,7 +62,7 @@ const Stat = (male,premiumData,female) => {
           <div>
             <div className="flex">
             <h6 className="mr-2 text-3xl  font-bold text-deep-purple-accent-400">
-          Female biodatas: <span className="text-[#ff3366]">   {female.length}</span>
+          Female biodatas: <span className="text-[#ff3366]">   {female?.length}</span>
               
               </h6>
               <div className="flex items-center justify-center rounded-full bg-teal-accent-400 w-7 h-7">

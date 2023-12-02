@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Authentication/AuthProvider";
 import { toast } from "react-toastify";
 import logo from '../../assets/logo.webp'
 
 const DashBoard = () => {
+    const navigate=useNavigate()
     const { logOut } = useContext(AuthContext)
     const handleLogOut = () => {
         logOut()
@@ -20,6 +21,7 @@ const DashBoard = () => {
                     theme: "light",
                 })
             })
+            navigate('/')
     }
     return (
         <div className="flex ">
@@ -42,6 +44,14 @@ const DashBoard = () => {
  '>      <NavLink to='/Dashboard/MyContactReq' className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? "btn hover:text-white bg-[#4a90e2] border-none" : "bg-[#00cc66] btn border-none hover:text-white"
                         }>My Contact Requests</NavLink></p>
+                    <p className='hover:text-white my-4
+ '>      <NavLink to='/Dashboard/MyFav' className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "btn hover:text-white bg-[#4a90e2] border-none" : "bg-[#00cc66] btn border-none hover:text-white"
+                        }>My Favourite Bio-data's</NavLink></p>
+                    <p className='hover:text-white my-4
+ '>      <NavLink to='/Dashboard/AllUsers' className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "btn hover:text-white bg-[#4a90e2] border-none" : "bg-[#00cc66] btn border-none hover:text-white"
+                        }>All users</NavLink></p>
                 </div>
                 <hr className="h-2  my-6 w-[80%] mx-auto" />
 

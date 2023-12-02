@@ -31,7 +31,7 @@ setView(SameEmail)
 
 },[])
 
-console.log(view?.Role);
+
     const { biodataType, profileImageLink,biodataId, permanentDivision, occupation, age, _id, contactEmail, dateOfBirth, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, fathersName, height, mothersName, name, phoneNumber, premiumMember, presentDivision, race, weight } = data
     const genderData = items.filter(item => item.biodataType.toLowerCase() === biodataType.toLowerCase())
   
@@ -75,6 +75,8 @@ console.log(view?.Role);
                         <div className=" flex justify-center gap-5 items-center font-bold tracking-widest text-red-600 uppercase"> <h1 className="py-5">Biodata-type: {biodataType}</h1>  </div>
                         <div className="flex gap-5  items-center justify-center ">
                             <h1 className="lg:mb-8 text-4xl font-bold leading-none tracking-tighter text-neutral-600 md:text-7xl lg:text-5xl">{name}</h1>
+                            
+                            <button onClick={() => handleBookmark()} className="bg-[#00cc66] my-5  text-white text-xl  btn hover:bg-[#4a90e2] border-none "><FaRegBookmark /></button>
 
                         </div>
 
@@ -119,21 +121,24 @@ console.log(view?.Role);
                             <p className=" text-lg leading-relaxed text-left pt-3 ">Expected parter Height:  <span className="text-red-600 font-semibold"> {expectedPartnerHeight} ft </span></p>
                             <p className=" text-lg leading-relaxed text-left pt-3 ">Expected parter Weight:  <span className="text-red-600 font-semibold"> {expectedPartnerWeight} kg </span></p>
                         </div>
-                        <div className="mt-0 lg:mt-6 ">
-                            <h1 className="text-red-600  text-xl mt-10 font-semibold">Contacts :</h1>
-                            <p className=" text-lg leading-relaxed text-left pt-8 ">Email:  <span className="text-red-600 font-semibold"> {contactEmail} </span></p>
-                            <p className=" text-lg leading-relaxed text-left pt-3 ">Phone number:  <span className="text-red-600 font-semibold"> {phoneNumber} </span></p>
-                            <h1 className="text-lg leading-relaxed text-left pt-3 "> Premium Membership:<span className="text-red-600 font-semibold"> {premiumMember}</span>
-                            </h1>
-
-
-                        </div>
+                        {
+                                view?.Role =='premium' ?  <div className="mt-0 lg:mt-6 ">
+                         
+                                <h1 className="text-red-600  text-xl mt-10 font-semibold">Contacts :</h1>
+                                <p className=" text-lg leading-relaxed text-left pt-8 ">Email:  <span className="text-red-600 font-semibold"> {contactEmail} </span></p>
+                                <p className=" text-lg leading-relaxed text-left pt-3 ">Phone number:  <span className="text-red-600 font-semibold"> {phoneNumber} </span></p>
+                                <h1 className="text-lg leading-relaxed text-left pt-3 "> Premium Membership:<span className="text-red-600 font-semibold"> {premiumMember}</span>
+                                </h1>
+    
+    
+                            </div> :  <div className="flex gap-6 justify-center items-center ">
+                        <Link to={`/checkout/${_id}`}>   <Butoon heading='Request Contact'></Butoon></Link> </div>
+                            }
+                      
                        
-                        <div className="flex gap-6 justify-center items-center ">
-                        <Link to={`/checkout/${_id}`}>   <Butoon heading='Request Contact'></Butoon></Link>
-                        {/* to={`/checkout/${biodataId}`} */}
-                            <button onClick={() => handleBookmark()} className="bg-[#00cc66] my-5 text-white  btn hover:bg-[#4a90e2] border-none "> Add to bookmark <FaRegBookmark /></button>
-                        </div>
+                      
+                   
+                       
                     </div>
             </div>
         </section>

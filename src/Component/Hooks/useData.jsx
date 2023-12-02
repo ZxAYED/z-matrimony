@@ -20,22 +20,15 @@ const [loading,setLoading]=useState()
             return res.data
         }
     })
-    const male =items.filter(item=>{
-     
-        return item.biodataType === 'Male'
-         
-     })
-    const female =items.filter(item=>{
-     
-        return item.biodataType === 'Female'
-         
-     })
+
+ 
+   
     
  
  
 
 
-    return [ items,loading,refetch,male,female ]
+    return [ items,loading,refetch, ]
 };
 
 export default useData;

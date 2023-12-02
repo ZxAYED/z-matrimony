@@ -7,7 +7,7 @@ const usePremium = () => {
     const AxiosPublic=useAxiosPublic()
 const [loading,setLoading]=useState()
     const {data:premiumData=[], isPending,refetch}=useQuery({
-        queryKey:['items'],
+        queryKey:['premium'],
         queryFn:async()=>{
             const res=await AxiosPublic.get('/premium')
             setLoading(isPending)

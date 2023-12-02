@@ -19,7 +19,7 @@ const Checkout = () => {
        
         axiosSecure.post('/requested',userInfo)
         .then(res=>{
-            console.log(res.data)
+            
             if(res.data.insertedId){
                 toast.success(`Request Succesfull`, {
                     position: "top-right",
@@ -45,6 +45,7 @@ const Checkout = () => {
                 theme: "light",
                 })
         })
+        // error show kortesena duibar press korle 
     }
     
     return (

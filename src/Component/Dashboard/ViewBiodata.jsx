@@ -6,8 +6,15 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Headings from './Headings';
 import Butoon from '../Shared/Butoon';
+import { useEffect } from 'react';
 const ViewBiodata = () => {
     const AxiosSecure=useAxiosSecure()
+   
+   useEffect(()=>{
+    AxiosSecure.get('/cards')
+    .then(res=>{setData(res.data)})
+  
+   },[])
     const {user}=useContext(AuthContext)
     const [data,setData]=useState()
     const email =user.email
@@ -18,6 +25,7 @@ const ViewBiodata = () => {
 
     const handleUpdate =e=>{
         e.preventDefault()
+        // const biodataId=data
         const form = e.target
         const biodataType =form.biodatatype.value;
         const name =form.name.value;

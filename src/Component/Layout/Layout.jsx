@@ -11,6 +11,8 @@ import DashBoard from "../Dashboard/DashBoard";
 import EditBioData from "../Dashboard/EditBioData";
 import ViewBiodata from "../Dashboard/ViewBiodata";
 import MyContactReq from "../Dashboard/MyContactReq";
+import MyFav from "../Dashboard/MyFav";
+import AllUsers from "../Dashboard/Admin/AllUsers";
 
 
 
@@ -64,6 +66,14 @@ import MyContactReq from "../Dashboard/MyContactReq";
             {
                 path:'/Dashboard/MyContactreq',
                 element:<MyContactReq/>
+            },
+            {
+                path:'/Dashboard/MyFav',
+                element:<MyFav/>
+            },
+            {
+                path:'/Dashboard/AllUsers',
+                element:<AllUsers/>
             },
         ]
 

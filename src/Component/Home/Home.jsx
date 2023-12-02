@@ -26,15 +26,34 @@ import Stat from "./Stat";
 
 
 import usePremium from "../Hooks/usePremium";
+import { useEffect } from "react";
+import { useState } from "react";
 
 
 
 const Home = () => {
+const [male,setMale]=useState()
+const[female,setFemale]=useState()
+    const[ items ] = useData()
+  useEffect(()=>{
+    const male =items.filter(item=>{
+     
+        return item.biodataType === 'Male'
+         
+     })
+     const female =items.filter(item=>{
+     
+        return item.biodataType === 'Female'
+         
+     })
+     setFemale(female)
+     setMale(male);
 
-    const [,male,female] = useData()
+  },[items])
+
     const [premiumData]=usePremium()
   
-console.log(premiumData);
+
     const [reviews,  ] = useReview()
  
 
@@ -44,8 +63,8 @@ console.log(premiumData);
      
         <div>
                <Banner></Banner>
-            {/* <Stat male={male}  premiumData={premiumData} female={female}></Stat>
-    */}
+             <Stat   male={male}   premiumData={premiumData} female={female}></Stat> 
+            
             <div className="max-w-7xl mx-auto mt-10">
                 <h1 className="text-4xl text-center font-bold text-[#ff3366]">Elite Connections: Premium Member Profiles</h1>
                 <p className="text-center text-xl py-4">Embark on a refined journey towards matrimony with our exclusive Premium Biodatas. Handpicked from a pool of exceptional individuals, these profiles showcase the epitome of commitment, compatibility, and genuine intent for a lifelong union. Our premium members represent a community of individuals who value the sanctity of marriage and are dedicated to finding their perfect match. Elevate your matrimony experience with these meticulously curated profiles, where quality meets compatibility, and love stories are crafted with precision. Explore the epitome of matrimonial excellence in our Premium Biodatas section.</p>
