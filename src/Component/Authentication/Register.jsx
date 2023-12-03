@@ -25,7 +25,7 @@ const Register = () => {
             UserName:data.name,
             UserEmail:data.email,
             password:data.password,
-            Image:res.data.data.display_url,
+            // Image:res.data.data?.display_url || '',
             Role :'user'
             
         }

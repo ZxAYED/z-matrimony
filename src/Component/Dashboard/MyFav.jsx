@@ -1,6 +1,6 @@
 
 import useAxiosSecure from "../Hooks/useAxiosSecure";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Headings from "./Headings";
 
 import Swal from "sweetalert2";
@@ -15,22 +15,23 @@ const MyFav = () => {
     
     const AxiosSecure=useAxiosSecure()
  const {user}=useContext(AuthContext)
-    const [items,setItems]=useState()
+    
 
  
         
      
      
     
-        const {data:item=[], refetch}=useQuery({
-            queryKey:['bookmarks'],
+        const {data:items=[], refetch}=useQuery({
+            queryKey:['email',user?.email],
             queryFn:async()=>{
-                const res=await AxiosSecure.get(`/bookmarks/?email=${user?.email}`)
+                const res=await AxiosSecure.get(`/bookmarks?email=${user?.email}`)
               
-                setItems(res.data)
+                return res.data
             }
            
         })
+      
       
 
    

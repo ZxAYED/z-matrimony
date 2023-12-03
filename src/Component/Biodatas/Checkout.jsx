@@ -14,7 +14,7 @@ const Checkout = () => {
     const handleRequest=()=>{
        
         const userInfo={
-            biodataType, profileImageLink,biodataId, permanentDivision, occupation, age, _id, contactEmail, dateOfBirth, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, fathersName, height, mothersName, name, phoneNumber, premiumMember, presentDivision, race, weight, 
+            biodataType, profileImageLink,biodataId, permanentDivision, occupation, age, _id, contactEmail, dateOfBirth, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, fathersName, height, mothersName, name, phoneNumber, premiumMember, presentDivision, race, weight, UserEmail :email,status :'pending'
         }
        
         axiosSecure.post('/requested',userInfo)

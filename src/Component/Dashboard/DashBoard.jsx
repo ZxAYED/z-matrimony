@@ -4,8 +4,19 @@ import { AuthContext } from "../Authentication/AuthProvider";
 import { toast } from "react-toastify";
 import logo from '../../assets/logo.webp'
 
+import useUsers from "../Hooks/useUsers";
+
+
 const DashBoard = () => {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
+    const [item, refetch] = useUsers()
+    const { user } = useContext(AuthContext)
+    const email = item.find(item1 => item1.UserEmail === user.email)
+
+
+
+
+
     const { logOut } = useContext(AuthContext)
     const handleLogOut = () => {
         logOut()
@@ -21,37 +32,68 @@ const DashBoard = () => {
                     theme: "light",
                 })
             })
-            navigate('/')
+        navigate('/')
     }
+
     return (
         <div className="flex ">
             <section className="w-[16%]   bg-[#ff3366] min-h-screen">
-                  <div className='flex justify-center  pt-5 items-center gap-2'>
-        <img className='w-10 h-10 rounded-[50%] object-cover' src={logo} alt="" />
-    <a className="btn btn-ghost  text-white text-2xl">TaqWaMate</a></div>
-
+                <div className='flex justify-center  pt-5 items-center gap-2'>
+                    <img className='w-10 h-10 rounded-[50%] object-cover' src={logo} alt="" />
+                    <a className="btn btn-ghost  text-white text-2xl">TaqWaMate</a></div>
+                <h1 className="flex justify-center items-center my-4 font-semibold text-white"> User :{user.email}</h1>
                 <div className="flex flex-col   items-left pl-10">
                     <h1 className="text-xl font-black my-6 text-white ">Dashboard Routes  </h1>
-                    <p className='hover:text-white my-4
- ' > <NavLink to='/Dashboard' className={({ isActive, isPending }) =>
-                            isPending ? " pending" : isActive ? " btn  bg-[#4a90e2] border-none hover:text-white" : "bg-[#00cc66] btn border-none hover:text-white"
-                        }>Create Bio-Data</NavLink></p>
-                    <p className='hover:text-white my-4
- '>      <NavLink to='/Dashboard/ViewBioData' className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? " btn hover:text-white bg-[#4a90e2] border-none" : "bg-[#00cc66] btn border-none hover:text-white"
-                        }>Update Bio-data</NavLink></p>
-                    <p className='hover:text-white my-4
- '>      <NavLink to='/Dashboard/MyContactReq' className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "btn hover:text-white bg-[#4a90e2] border-none" : "bg-[#00cc66] btn border-none hover:text-white"
-                        }>My Contact Requests</NavLink></p>
-                    <p className='hover:text-white my-4
- '>      <NavLink to='/Dashboard/MyFav' className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "btn hover:text-white bg-[#4a90e2] border-none" : "bg-[#00cc66] btn border-none hover:text-white"
-                        }>My Favourite Bio-data's</NavLink></p>
-                    <p className='hover:text-white my-4
- '>      <NavLink to='/Dashboard/AllUsers' className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "btn hover:text-white bg-[#4a90e2] border-none" : "bg-[#00cc66] btn border-none hover:text-white"
-                        }>All users</NavLink></p>
+                    { 
+                    // 
+
+                    email?.Role==='admin'? <div> <div>
+
+                            <p className='hover:text-white my-4
+                        ' > <NavLink to='/Dashboard/admin' className={({ isActive, isPending }) =>
+                                isPending ? " pending" : isActive ? " btn  bg-[#4a90e2] border-none hover:text-white" : "bg-[#00cc66] btn border-none hover:text-white"
+                            }>Admin's DashBoard</NavLink></p>
+                            <p className='hover:text-white my-4
+                        ' > <NavLink to='/Dashboard/admin/approve' className={({ isActive, isPending }) =>
+                                isPending ? " pending" : isActive ? " btn  bg-[#4a90e2] border-none hover:text-white" : "bg-[#00cc66] btn border-none hover:text-white"
+                            }>Approve Premium</NavLink></p>
+                            <p className='hover:text-white my-4
+                        ' > <NavLink to='/Dashboard/admin/contact' className={({ isActive, isPending }) =>
+                                isPending ? " pending" : isActive ? " btn  bg-[#4a90e2] border-none hover:text-white" : "bg-[#00cc66] btn border-none hover:text-white"
+                            }> Approved Contact Request</NavLink></p>
+                            <p className='hover:text-white my-4
+                        ' > <NavLink to='/Dashboard/admin/Users' className={({ isActive, isPending }) =>
+                                isPending ? " pending" : isActive ? " btn  bg-[#4a90e2] border-none hover:text-white" : "bg-[#00cc66] btn border-none hover:text-white"
+                            }> Manage Users</NavLink></p>
+                            
+                            </div> </div>
+                            
+                            
+                            : <div> <p className='hover:text-white my-4
+                                               ' > <NavLink to='/Dashboard' className={({ isActive, isPending }) =>
+                                    isPending ? " pending" : isActive ? " btn  bg-[#4a90e2] border-none hover:text-white" : "bg-[#00cc66] btn border-none hover:text-white"
+                                }>Create Bio-Data</NavLink></p>
+                            <p className='hover:text-white my-4
+                                               '>      <NavLink to='/Dashboard/ViewBioData' className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? " btn hover:text-white bg-[#4a90e2] border-none" : "bg-[#00cc66] btn border-none hover:text-white"
+                                }>Update Bio-data</NavLink></p>
+                            <p className='hover:text-white my-4
+                                               '>      <NavLink to='/Dashboard/MyContactReq' className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "btn hover:text-white bg-[#4a90e2] border-none" : "bg-[#00cc66] btn border-none hover:text-white"
+                                }>My Contact Requests</NavLink></p>
+                            <p className='hover:text-white my-4
+                                               '>      <NavLink to='/Dashboard/MyFav' className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "btn hover:text-white bg-[#4a90e2] border-none" : "bg-[#00cc66] btn border-none hover:text-white"
+                                }>My Favourite Bio-data's</NavLink></p>
+                            <p className='hover:text-white my-4
+                                               '>      <NavLink to='/Dashboard/Married' className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "btn hover:text-white bg-[#4a90e2] border-none" : "bg-[#00cc66] btn border-none hover:text-white"
+                                }>Got Married </NavLink></p>
+                           </div>
+                    }
+
+
+
                 </div>
                 <hr className="h-2  my-6 w-[80%] mx-auto" />
 

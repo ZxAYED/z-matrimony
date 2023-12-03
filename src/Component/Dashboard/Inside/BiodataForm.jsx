@@ -22,8 +22,12 @@ const BiodataForm = () => {
     .then(res=>{setData(res.data)})
   
    },[])
-//    const biodataId=data2.length
-    const handleUpdate =e=>{
+   const biodataId=data2?.length
+
+
+
+   
+    const handlePost =e=>{
         e.preventDefault()
         const form = e.target
        
@@ -45,7 +49,7 @@ const BiodataForm = () => {
         const expectedPartnerWeight=form.ExpectedPartnerWeight.value;
         const phoneNumber=form.Mobile.value;
         const contactEmail=user.email
-        const premiumMember ="no"
+        const Role='user'
         const status ='available'
    const data={ biodataId,  fathersName,race,age,occupation,dateOfBirth,weight,height,profileImageLink,name,biodataType,status,
         mothersName,
@@ -56,10 +60,10 @@ const BiodataForm = () => {
         expectedPartnerWeight,
         phoneNumber,
         contactEmail,
-        premiumMember}
+        Role}
 
 
-     AxiosSecure.post('/cards',data)
+     AxiosSecure.post(`/cards`,data)
         .then(res=>{
             if(res){
                 console.log(res);
@@ -95,7 +99,7 @@ const BiodataForm = () => {
       
       <div className='text-black  rounded-2xl'>
             
-<form className='px-16 ' onSubmit={handleUpdate} > 
+<form className='px-16 ' onSubmit={handlePost} > 
    
   <div className="relative z-0 w-full mb-6 group">
       <input type="text" name="biodatatype"  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-yellow-500 focus:outline-none focus:ring-0 focus:border-yellow-600 peer" placeholder=" " required />
@@ -171,8 +175,8 @@ const BiodataForm = () => {
     </div>
     <div className="relative z-0 w-full mb-6 group">
         <input type="text" name="biodataId"  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 disabled dark:focus:border-yellow-500 focus:outline-none focus:ring-0 focus:border-yellow-600 peer" placeholder=" " required />
-        <label  className="peer-focus:font-medium absolute text-sm text-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-yellow-600 peer-focus:dark:text-yellow-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Bio-data Id :  </label>
-        {/* {biodataId}  */}
+        <label  className="peer-focus:font-medium absolute text-sm text-black dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-yellow-600 peer-focus:dark:text-yellow-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Bio-data Id : {biodataId}   </label>
+       
     </div>
    
   </div>

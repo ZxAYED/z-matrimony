@@ -13,9 +13,13 @@ import ViewBiodata from "../Dashboard/ViewBiodata";
 import MyContactReq from "../Dashboard/MyContactReq";
 import MyFav from "../Dashboard/MyFav";
 import AllUsers from "../Dashboard/Admin/AllUsers";
+import AdminDash from "../Dashboard/Admin/AdminDash";
+import AdminApprove from "../Dashboard/Admin/AdminApprove";
+import AdminContact from "../Dashboard/Admin/AdminContact";
 
-
-
+import Contact from "../Shared/Contact";
+import GotMarried from "../Dashboard/GotMarried";
+// import About from "../Shared/About";
 
 
  export const router = createBrowserRouter([
@@ -30,6 +34,14 @@ import AllUsers from "../Dashboard/Admin/AllUsers";
         {
             path:'/Biodatas',
             element:<Biodatas/>,
+        },
+        // {
+        //     path:'/About',
+        //     element:<About/>,
+        // },
+        {
+            path:'/Contact',
+            element:<Contact/>,
         },
         {
             path:'/Login',
@@ -72,10 +84,41 @@ import AllUsers from "../Dashboard/Admin/AllUsers";
                 element:<MyFav/>
             },
             {
-                path:'/Dashboard/AllUsers',
+                path:'/Dashboard/Married',
+                element:<GotMarried/>
+            },
+          
+        ],
+
+    },
+    {
+        path:'/Dashboard/admin',
+        element:<PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
+        children:[
+            {
+                path:'/Dashboard/admin',
+                element:<AdminDash></AdminDash>
+            },
+            {
+                path:'/Dashboard/admin/Users',
                 element:<AllUsers/>
             },
-        ]
+            {
+                path:'/Dashboard/admin/approve',
+                element:<AdminApprove/>
+            },
+            {
+                path:'/Dashboard/admin/contact',
+                element:<AdminContact/>
+            },
+           
+           
+        ],
+       
+
+   
+        
+       
 
     }
   ]);

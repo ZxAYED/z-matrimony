@@ -15,7 +15,7 @@ import { useEffect } from "react";
 const SingleCard = () => {
     const [view , setView]=useState()
 const {user}=useContext(AuthContext)
-
+const UserEmail=user.email 
     //TODO :ADD SOME ICONS TO EACH SECTIONS LIKE CALL EMAIL ICONS
     const data = useLoaderData()
     const [items, loading, refetch, premiumData, male, female] = useData()
@@ -32,11 +32,12 @@ setView(SameEmail)
 },[])
 
 
-    const { biodataType, profileImageLink,biodataId, permanentDivision, occupation, age, _id, contactEmail, dateOfBirth, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, fathersName, height, mothersName, name, phoneNumber, premiumMember, presentDivision, race, weight } = data
+    const { biodataType, profileImageLink,biodataId, permanentDivision, occupation, age, _id, contactEmail, dateOfBirth, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, fathersName, height, mothersName, name, phoneNumber, premiumMember, presentDivision, race, weight} = data
     const genderData = items.filter(item => item.biodataType.toLowerCase() === biodataType.toLowerCase())
   
     const handleBookmark = () => {
-        axiosSecure.post('/bookmarks', data)
+        const data2 ={UserEmail, biodataType, profileImageLink,biodataId, permanentDivision, occupation, age, _id, contactEmail, dateOfBirth, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, fathersName, height, mothersName, name, phoneNumber, premiumMember, presentDivision, race, weight}
+        axiosSecure.post('/bookmarks', data2)
             .then(function (response) {
 
                 toast.success(`${name} is in your list now!`, {
@@ -122,7 +123,7 @@ setView(SameEmail)
                             <p className=" text-lg leading-relaxed text-left pt-3 ">Expected parter Weight:  <span className="text-red-600 font-semibold"> {expectedPartnerWeight} kg </span></p>
                         </div>
                         {
-                                view?.Role =='premium' ?  <div className="mt-0 lg:mt-6 ">
+                                view?.Role !=='user' ?  <div className="mt-0 lg:mt-6 ">
                          
                                 <h1 className="text-red-600  text-xl mt-10 font-semibold">Contacts :</h1>
                                 <p className=" text-lg leading-relaxed text-left pt-8 ">Email:  <span className="text-red-600 font-semibold"> {contactEmail} </span></p>
