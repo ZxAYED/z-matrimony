@@ -8,9 +8,9 @@ import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 
 
-const ViewForm = ({ data }) => {
+const ViewForm = ({ data,refetch }) => {
     const { user } = useContext(AuthContext)
-console.log(user);
+console.log(data);
     const AxiosSecure = useAxiosSecure()
 
     const { fathersName, race, age, occupation, dateOfBirth, weight, height, profileImageLink, name, biodataType,
@@ -67,6 +67,7 @@ console.log(user);
              
                     console.log(res.data);
                     if(res.data.modifiedCount > 0){
+                        refetch()
                         toast.success(`${contactEmail}'s Bio-Data has updated SuccessFully!`, {
                             position: "top-right",
                             autoClose: 2000,
@@ -102,6 +103,7 @@ console.log(user);
        AxiosSecure.post('/premiumReq',info)
        .then(res=>{
         if(res.data.insertedId){
+            refetch()
             toast.success(`Request sent ! `, {
                 position: "top-right",
                 autoClose: 2000,
@@ -202,7 +204,7 @@ console.log(user);
             </div>
 
             <div className="flex flex-col justify-center mt-10  mb-4 mx-auto items-center gap-4">
-                <button type="submit" onClick={() => handleUpdate(_id)} className='block mx-auto'><Butoon heading={"Submit"}></Butoon></button>
+                <button type="submit"  className='block btn mx-auto'>Submit</button>
              
             </div>
 

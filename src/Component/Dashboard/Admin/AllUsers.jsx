@@ -123,7 +123,7 @@ console.log(res.data);
           <td className="uppercase">{item.Role}</td>
           <td className="uppercase">{item.Role==='user'? <button onClick={()=>handlePremium(item.UserEmail)} className="btn btn-danger bg-[#ff3366] border-none" >Make Premium</button>:item.Role }</td>
           <td className="flex  items-center">
-       {item?.Role ==="admin" ?"Admin"  :<button onClick={()=>handleAdmin(item.biodataId)} className="btn btn-danger bg-[#ff3366] border-none" >Make Admin</button>
+       {item?.Role ==="admin" ?"Admin"  :<button onClick={()=>handleAdmin(item._id)} className="btn btn-danger bg-[#ff3366] border-none" >Make Admin</button>
           }</td>
           
         </tr>
