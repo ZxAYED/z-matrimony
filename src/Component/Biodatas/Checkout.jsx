@@ -10,11 +10,12 @@ const Checkout = () => {
     const { biodataType, profileImageLink,biodataId, permanentDivision, occupation, age, _id, contactEmail, dateOfBirth, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, fathersName, height, mothersName, name, phoneNumber, premiumMember, presentDivision, race, weight } = data
     const {user}=useContext(AuthContext)
     const email=user.email || ''
+    const UserName=user.displayName || ''
     const axiosSecure=useAxiosSecure()
     const handleRequest=()=>{
        
         const userInfo={
-            biodataType, profileImageLink,biodataId, permanentDivision, occupation, age, _id, contactEmail, dateOfBirth, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, fathersName, height, mothersName, name, phoneNumber, premiumMember, presentDivision, race, weight, UserEmail :email,status :'pending'
+            biodataType, profileImageLink,biodataId, permanentDivision, occupation, age, id:_id, contactEmail, dateOfBirth, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, fathersName, height, mothersName, name, phoneNumber, premiumMember, presentDivision, race, weight, UserEmail :email,status :'pending',UserName
         }
        
         axiosSecure.post('/requested',userInfo)

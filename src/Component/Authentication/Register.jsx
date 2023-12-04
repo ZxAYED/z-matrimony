@@ -25,10 +25,12 @@ const Register = () => {
             UserName:data.name,
             UserEmail:data.email,
             password:data.password,
-            // Image:res.data.data?.display_url || '',
-            Role :'user'
+            Image:res.data.data?.display_url ,
+            Role :'user',
+            status :'pending',
             
         }
+        console.log(item,data.name,image);
        
         handleRegister(data.email,data.password)
         .then(res=>{
@@ -48,7 +50,7 @@ const Register = () => {
             progress: undefined,
             theme: "light",
             }))
-            navigate('/Login');
+            navigate('/');
       }
       
       console.log(data)
@@ -56,7 +58,7 @@ const Register = () => {
   const Google=()=>{
     handleGoogle()
     .then(result =>{
-        console.log(result.user);
+
         const userInfo = {
             email: result.user?.email,
             name: result.user?.displayName

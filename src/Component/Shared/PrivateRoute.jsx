@@ -8,16 +8,16 @@ import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { Audio } from "react-loader-spinner";
 
 const PrivateRoute = ({ children }) => {
-    const [loading] = useData()
+ 
     const navigate = useNavigate()
     const location = useLocation()
-    const { loading: loading2, user } = useContext(AuthContext)
+    const { loading, user } = useContext(AuthContext)
     if (user) {
         return children
     }
-    if (loading || loading2) {
+    if (loading ) {
 
-        <>
+       return <>
             <div className="flex flex-col justify-center items-center w-1/2 gap-5 p-2 mx-auto bg-white shadow-lg select-none sm:p-4 sm:h-64 rounded-2xl sm:flex-row ">
                 <div className="bg-gray-200 h-52 sm:h-full sm:w-72 rounded-xl animate-pulse">
                 </div>

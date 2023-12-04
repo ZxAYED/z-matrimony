@@ -53,7 +53,7 @@ const MyContactReq = () => {
       });
 }
 // jodi data na thake taile add korar ppop up dite hbe
- console.log(items);
+
     return (
         <div className='max-w-5xl mx-auto'>
             <Headings heading={" My Contact Request"} subheading={"Explore a curated collection of biodatas you've saved in the 'View My Request' section. These profiles have captured your interest and are potential matches for your journey in finding a life partner. Easily manage and keep track of your bookmarked biodatas here. Your saved selections are a personalized gallery, carefully chosen to align with your preferences and aspirations. Dive into this collection to discover profiles that resonate with you, bringing you one step closer to the perfect connection."}></Headings>

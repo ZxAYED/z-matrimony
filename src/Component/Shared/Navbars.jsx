@@ -19,6 +19,7 @@ const Navbars = () => {
 useEffect(()=>{
   const email = item?.find(item1 => item1?.UserEmail === user?.email) 
   setEmail(email?.Role)
+
 },[])
 
 

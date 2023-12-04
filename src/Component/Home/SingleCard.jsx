@@ -36,7 +36,7 @@ setView(SameEmail)
     const genderData = items.filter(item => item.biodataType.toLowerCase() === biodataType.toLowerCase())
   
     const handleBookmark = () => {
-        const data2 ={UserEmail, biodataType, profileImageLink,biodataId, permanentDivision, occupation, age, _id, contactEmail, dateOfBirth, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, fathersName, height, mothersName, name, phoneNumber, premiumMember, presentDivision, race, weight}
+        const data2 ={UserEmail, biodataType, profileImageLink,biodataId, permanentDivision, occupation, age, id:_id, contactEmail, dateOfBirth, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, fathersName, height, mothersName, name, phoneNumber, premiumMember, presentDivision, race, weight}
         axiosSecure.post('/bookmarks', data2)
             .then(function (response) {
 
@@ -55,6 +55,7 @@ setView(SameEmail)
                 console.log(error);
             });
     }
+   
     return (
 
         <section className="max-w-7xl mx-auto ">

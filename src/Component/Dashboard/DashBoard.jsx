@@ -36,8 +36,8 @@ const DashBoard = () => {
     }
 
     return (
-        <div className="flex ">
-            <section className="w-[16%]   bg-[#ff3366] min-h-screen">
+        <div className="flex  flex-col lg:flex-row">
+            <section className="w-full  lg:w-[16%]   bg-[#ff3366] min-h-screen">
                 <div className='flex justify-center  pt-5 items-center gap-2'>
                     <img className='w-10 h-10 rounded-[50%] object-cover' src={logo} alt="" />
                     <a className="btn btn-ghost  text-white text-2xl">TaqWaMate</a></div>
@@ -45,9 +45,9 @@ const DashBoard = () => {
                 <div className="flex flex-col   items-left pl-10">
                     <h1 className="text-xl font-black my-6 text-white ">Dashboard Routes  </h1>
                     { 
-                    // 
+                 
 
-                    email?.Role==='admin'? <div> <div>
+                 email?.Role ==='admin'? <div> <div>
 
                             <p className='hover:text-white my-4
                         ' > <NavLink to='/Dashboard/admin' className={({ isActive, isPending }) =>
@@ -56,11 +56,11 @@ const DashBoard = () => {
                             <p className='hover:text-white my-4
                         ' > <NavLink to='/Dashboard/admin/approve' className={({ isActive, isPending }) =>
                                 isPending ? " pending" : isActive ? " btn  bg-[#4a90e2] border-none hover:text-white" : "bg-[#00cc66] btn border-none hover:text-white"
-                            }>Approve Premium</NavLink></p>
+                            }>Approve Contact Request </NavLink></p>
                             <p className='hover:text-white my-4
                         ' > <NavLink to='/Dashboard/admin/contact' className={({ isActive, isPending }) =>
                                 isPending ? " pending" : isActive ? " btn  bg-[#4a90e2] border-none hover:text-white" : "bg-[#00cc66] btn border-none hover:text-white"
-                            }> Approved Contact Request</NavLink></p>
+                            }> Approve Premium </NavLink></p>
                             <p className='hover:text-white my-4
                         ' > <NavLink to='/Dashboard/admin/Users' className={({ isActive, isPending }) =>
                                 isPending ? " pending" : isActive ? " btn  bg-[#4a90e2] border-none hover:text-white" : "bg-[#00cc66] btn border-none hover:text-white"
@@ -95,7 +95,7 @@ const DashBoard = () => {
 
 
                 </div>
-                <hr className="h-2  my-6 w-[80%] mx-auto" />
+                <hr className="h-2  my-6 w-full  lg:w-[80%] mx-auto" />
 
                 <div className="flex flex-col  items-left pl-10">
                     <p className='hover:text-white my-4 bg-[#00cc66] w-fit p-2 rounded '>

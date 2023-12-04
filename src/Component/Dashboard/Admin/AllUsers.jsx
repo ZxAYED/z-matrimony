@@ -40,6 +40,7 @@ const AllUsers = () => {
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes"
           }).then((result) => {
+            
             if (result.isConfirmed) {
                 AxiosSecure.patch(`/users/admin/${id}`)
                 .then(res=>{
@@ -62,34 +63,34 @@ const AllUsers = () => {
     }
     const handlePremium=id=>{
     
-        Swal.fire({
-            title: "Are you sure?",
-            text: "Make Premium?",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes"
-          }).then((result) => {
-            if (result.isConfirmed) {
-                AxiosSecure.patch(`/users/admin/premium/${id}`)
-                .then(res=>{
-            
-                    if(res.data){
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You want to approve the contact ?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            AxiosSecure.patch(`/users/admin/premium/${id}`)
+                .then(res => {
+console.log(res.data);
+                    if (res.data.modifiedCount >0) {
                         refetch()
                         Swal.fire({
                             title: "Done!",
-                            text: "Premium member added",
+                            text: "Contact Approved",
                             icon: "success"
-                          });
+                        });
                     }
-                   
+
                 })
-             
-             
-            
-            }
-          });
+
+
+
+        }
+    });
     }
 
     return (
@@ -120,7 +121,7 @@ const AllUsers = () => {
           <td>{item.UserEmail} </td>
           <td>{item.UserName}</td>
           <td className="uppercase">{item.Role}</td>
-          <td className="uppercase">{item.Role==='user'? <button onClick={()=>handlePremium(item._id)} className="btn btn-danger bg-[#ff3366] border-none" >Make Premium</button>:item.Role }</td>
+          <td className="uppercase">{item.Role==='user'? <button onClick={()=>handlePremium(item.UserEmail)} className="btn btn-danger bg-[#ff3366] border-none" >Make Premium</button>:item.Role }</td>
           <td className="flex  items-center">
        {item?.Role ==="admin" ?"Admin"  :<button onClick={()=>handleAdmin(item.biodataId)} className="btn btn-danger bg-[#ff3366] border-none" >Make Admin</button>
           }</td>
