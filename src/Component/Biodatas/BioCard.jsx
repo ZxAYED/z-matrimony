@@ -1,11 +1,21 @@
 import { Link } from "react-router-dom";
 import Butoon from "../Shared/Butoon";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const BioCard = ({item}) => {
+         
+      useEffect(()=>{
+        AOS.init();
+      },[])
+        
+           
     const {biodataType,profileImageLink,permanentDivision,name,occupation,age,contactEmail,_id}=item
     return (
-        <div className="w-full max-w-sm text-white overflow-hidden bg-[#4a90e2] rounded-lg shadow-lg h-[580px] relative">
+        <div data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="800" className="w-full max-w-sm text-white overflow-hidden bg-[#4a90e2] rounded-lg shadow-lg h-[580px] relative">
         <img className="object-fit  w-full h-56" src={profileImageLink} alt="avatar"/>
     
         <div className="flex items-center px-6 py-3 bg-[#4a90e2]">

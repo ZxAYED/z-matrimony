@@ -10,7 +10,8 @@ import { AuthContext } from "../Authentication/AuthProvider";
 import { useState } from "react";
 import { useEffect } from "react";
 
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const SingleCard = () => {
     const [view , setView]=useState()
@@ -31,7 +32,9 @@ setView(SameEmail)
 
 },[])
 
-
+useEffect(()=>{
+    AOS.init();
+  },[])
     const { biodataType, profileImageLink,biodataId, permanentDivision, occupation, age, _id, contactEmail, dateOfBirth, expectedPartnerAge, expectedPartnerHeight, expectedPartnerWeight, fathersName, height, mothersName, name, phoneNumber, premiumMember, presentDivision, race, weight} = data
     const genderData = items.filter(item => item.biodataType.toLowerCase() === biodataType.toLowerCase())
   
@@ -58,7 +61,7 @@ setView(SameEmail)
    
     return (
 
-        <section className="max-w-7xl mx-auto ">
+        <section data-aos="flip-down" className="max-w-7xl mx-auto ">
             <div className="px-4 py-12   sm:px-6 md:px-12 lg:px-0 lg:py-24">
                 <div className=" gap-10 flex ">
                     <div className="w-full   lg:w-[40%] rounded-xl">

@@ -3,8 +3,10 @@ import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Authentication/AuthProvider";
 import { toast } from "react-toastify";
 import logo from '../../assets/logo.webp'
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import useUsers from "../Hooks/useUsers";
+import { useEffect } from "react";
 
 
 const DashBoard = () => {
@@ -13,7 +15,10 @@ const DashBoard = () => {
     const { user } = useContext(AuthContext)
     const email = item.find(item1 => item1.UserEmail === user.email)
 
-
+    useEffect(()=>{
+        AOS.init();
+      },[])
+        
 
 
 
@@ -37,8 +42,9 @@ const DashBoard = () => {
 
     return (
         <div className="flex  flex-col lg:flex-row">
-            <section className="w-full  lg:w-[16%]   bg-[#ff3366] min-h-screen">
-                <div className='flex justify-center  pt-5 items-center gap-2'>
+            <section  data-aos="fade-up"
+        data-aos-anchor-placement="top-center" className="w-full  lg:w-[16%]   bg-[#ff3366] min-h-screen">
+                <div  className='flex justify-center  pt-5 items-center gap-2'>
                     <img className='w-10 h-10 rounded-[50%] object-cover' src={logo} alt="" />
                     <a className="btn btn-ghost  text-white text-2xl">TaqWaMate</a></div>
                 <h1 className="flex justify-center items-center my-4 font-semibold text-white"> User :{user.email}</h1>
@@ -95,7 +101,9 @@ const DashBoard = () => {
 
 
                 </div>
-                <hr className="h-2  my-6 w-full  lg:w-[80%] mx-auto" />
+                <hr className='h-2  data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="800"  my-6 w-full  lg:w-[80%] mx-auto' />
 
                 <div className="flex flex-col  items-left pl-10">
                     <p className='hover:text-white my-4 bg-[#00cc66] w-fit p-2 rounded '>

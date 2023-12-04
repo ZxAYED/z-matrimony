@@ -13,7 +13,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Marquee from "react-fast-marquee";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import Rating from '@mui/material/Rating';
 
@@ -28,6 +29,7 @@ import Stat from "./Stat";
 import usePremium from "../Hooks/usePremium";
 import { useEffect } from "react";
 import { useState } from "react";
+
 
 
 
@@ -55,7 +57,9 @@ const[female,setFemale]=useState()
   
 
     const [reviews,  ] = useReview()
- 
+    useEffect(()=>{
+        AOS.init();
+      },[])
 
 
 
@@ -101,7 +105,9 @@ const[female,setFemale]=useState()
                                 return <SwiperSlide key={review._id} >
 
 
-                                    <Card sx={{ maxWidth: 345 }}>
+                                    <Card data-aos="fade-right"
+     data-aos-offset="200"
+     data-aos-easing="ease-in-sine" sx={{ maxWidth: 345 }}>
                                         <CardActionArea>
                                             <CardMedia
                                                 component="img"

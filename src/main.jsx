@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { ToastContainer, toast } from 'react-toastify';
+
+import 'aos/dist/aos.css';
 import 'react-toastify/dist/ReactToastify.css';
 import {
   useQuery,
@@ -20,6 +22,9 @@ import {
 } from "react-router-dom";
 import { router } from './Component/Layout/Layout.jsx';
 import AuthProvider from './Component/Authentication/AuthProvider.jsx';
+import { useEffect } from 'react';
+import Aos from 'aos';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

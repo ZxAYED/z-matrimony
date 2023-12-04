@@ -7,7 +7,7 @@ const Cards = ({item}) => {
  const {biodataType,biodataId,profileImageLink,permanentDivision,occupation,age,_id}=item
 
     return (
-        <div>
+        <div data-aos="zoom-out">
         
         <div className="relative overflow-hidden">
  <div className="w-full h-[40vh] bg-cover  text-white bg-center transition-transform  scale-100 hover:scale-105 hover:bg-[#BE006B] duration-1000">
