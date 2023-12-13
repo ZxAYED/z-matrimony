@@ -9,6 +9,7 @@ import useUsers from '../Hooks/useUsers';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
+
 const Navbars = () => {
   const { user, logOut } = useContext(AuthContext)
   const [items]=useUsers()
@@ -38,7 +39,7 @@ useEffect(()=>{
       user  ? isAdmin ? 
         <NavLink to='/Dashboard/admin' className={({ isActive, isPending }) =>
           isPending ? "pending" : isActive ? "bg-[#00cc66] btn    hover:bg-[#4a90e2] border-none" : ""
-        }><li className='hover:text-white'>DashBoard</li></NavLink> : <div><NavLink to='/Dashboard' className={({ isActive, isPending }) =>
+        }><li className='hover:text-white'>  DashBoard</li></NavLink> : <div><NavLink to='/Dashboard' className={({ isActive, isPending }) =>
           isPending ? "pending" : isActive ? "bg-[#00cc66] btn    hover:bg-[#4a90e2] border-none" : ""
         }><li className='hover:text-white'>DashBoard</li></NavLink></div>:''
     }
