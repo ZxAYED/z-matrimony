@@ -54,12 +54,12 @@ import GotMarried from "../Dashboard/GotMarried";
         {
             path:'/singleCard/:id',
             element:<PrivateRoute><SingleCard/></PrivateRoute>,
-            loader: ({params}) => fetch(`https://z-matrimony-server.vercel.app/singleCard/${params.id}`)
+            loader: ({params}) => fetch(`http://localhost:5000/singleCard/${params.id}`)
         },
         {
             path:'/checkout/:id',
             element:<PrivateRoute><Checkout/></PrivateRoute>,
-            loader: ({params}) => fetch(`https://z-matrimony-server.vercel.app/checkout/${params.id}`)
+            loader: ({params}) => fetch(`http://localhost:5000/checkout/${params.id}`)
         },
       ]
     },

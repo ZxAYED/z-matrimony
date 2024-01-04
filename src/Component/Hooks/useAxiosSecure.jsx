@@ -1,7 +1,7 @@
 
 import axios from "axios";
 export const AxiosSecure = axios.create({
-    baseURL: 'https://z-matrimony-server.vercel.app'
+    baseURL: 'http://localhost:5000'
 },{Credential:true})
 const useAxiosSecure = () => {
     return AxiosSecure;

@@ -5,6 +5,9 @@ import useAxiosPublic from './../Hooks/useAxiosPublic';
 import { toast } from "react-toastify";
 import { useContext } from "react";
 import { AuthContext } from "./AuthProvider";
+
+
+
 const Register = () => {
     const { handleGoogle, handleRegister } = useContext(AuthContext)
     const navigate = useNavigate()
