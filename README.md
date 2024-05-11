@@ -15,7 +15,6 @@ Seamless Integration with MongoDB for Data Persistence:
 
 Leveraging MongoDB for data storage ensures seamless data persistence and retrieval, contributing to a reliable and scalable backend infrastructure. The website's robust database integration facilitates efficient matchmaking, allowing users to find suitable matches based on their preferences and criteria
 
-Experience secure and seamless transactions powered by Stripe.js – your trusted partner for online payments.
 
 Our matrimony website addresses the real problem of simplifying and securing the journey to finding a life partner. By seamlessly integrating advanced technologies like JWT, Firebase authentication, Tanstack Query, React Hook Form, and MongoDB, we provide a trusted and efficient platform that revolutionizes the way individuals connect and build meaningful relationships, solving the challenges associated with traditional matchmaking and enhancing the overall matrimony experience
 
