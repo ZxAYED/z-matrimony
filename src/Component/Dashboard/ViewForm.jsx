@@ -10,7 +10,7 @@ import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const ViewForm = ({ data,refetch }) => {
     const { user } = useContext(AuthContext)
-console.log(data);
+
     const AxiosSecure = useAxiosSecure()
 
     const { fathersName, race, age, occupation, dateOfBirth, weight, height, profileImageLink, name, biodataType,

@@ -15,7 +15,7 @@ const Navbars = () => {
   const [items]=useUsers()
  
   const [item, refetch] = useUsers()
-  const [isAdmin,setEmail]=useState()
+  const [isAdmin,setEmail]=useState(false)
   const photo=user?.photoURL || setEmail.Image
 useEffect(()=>{
   const email = item?.find(item1 => item1?.UserEmail === user?.email) 
@@ -23,37 +23,50 @@ useEffect(()=>{
 
 },[])
 
-
+console.log(isAdmin);
   const navlinks = <>
-
+{/* bg-[#00cc66] btn  hover:bg-[#4a90e2] */}
     <NavLink to='/' className={({ isActive, isPending }) =>
-      isPending ? "pending" : isActive ? "bg-[#00cc66] btn  hover:bg-[#4a90e2] border-none" : ""
-    }><li className='hover:text-white
+      isPending ? "pending" : isActive ? "text-white" : ""
+    }><li className='hover:text-white font-medium text-xl 
  '>Home</li></NavLink>
 
     <NavLink to='/Biodatas' className={({ isActive, isPending }) =>
-      isPending ? "pending" : isActive ? "bg-[#00cc66] btn    hover:bg-[#4a90e2] border-none" : ""
-    }><li className='hover:text-white'>Biodatas</li></NavLink>
+      isPending ? "pending" : isActive ? "text-white" : ""
+    }><li className='hover:text-white font-medium text-xl'>Biodatas</li></NavLink>
 
-    {
-      user  ? isAdmin ? 
-        <NavLink to='/Dashboard/admin' className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "bg-[#00cc66] btn    hover:bg-[#4a90e2] border-none" : ""
-        }><li className='hover:text-white'>  DashBoard</li></NavLink> : <div><NavLink to='/Dashboard' className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "bg-[#00cc66] btn    hover:bg-[#4a90e2] border-none" : ""
-        }><li className='hover:text-white'>DashBoard</li></NavLink></div>:''
-    }
+{
+  user ? (
+    isAdmin ? (
+      <NavLink 
+        to='/Dashboard/admin' 
+        className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "text-white" : ""
+        }>
+        <li className='hover:text-white font-medium text-xl'>DashBoard</li>
+      </NavLink>
+    ) : (
+      <NavLink 
+        to='/Dashboard/' 
+        className={({ isActive, isPending }) =>
+          isPending ? "pending" : isActive ? "text-white" : ""
+        }>
+        <li className='hover:text-white font-medium text-xl'>DashBoard</li>
+      </NavLink>
+    )
+  ) : ''
+}
 
 
     <NavLink to='/About' className={({ isActive, isPending }) =>
-      isPending ? "pending" : isActive ? "bg-[#00cc66] btn   hover:bg-[#4a90e2] border-none" : ""
+      isPending ? "pending" : isActive ? "text-white" : ""
     }>
-      <li className='hover:text-white'>About us</li></NavLink>
+      <li className='hover:text-white font-medium text-xl'>About us</li></NavLink>
 
     <NavLink to='/Contact' className={({ isActive, isPending }) =>
-      isPending ? "pending" : isActive ? "bg-[#00cc66] btn   hover:bg-[#4a90e2] border-none" : ""
+      isPending ? "pending" : isActive ? "text-white" : ""
     }>
-      <li className='hover:text-white'>Contact Us</li></NavLink>
+      <li className='hover:text-white font-medium text-xl'>Contact Us</li></NavLink>
 
 
 
@@ -96,7 +109,7 @@ useEffect(()=>{
               <a className="btn btn-ghost  text-white text-2xl">TaqWaMate</a></div>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal  px-1 flex flex-column  justify-center items-center gap-4  text-lg ">
+            <ul className="menu menu-horizontal  px-1 flex flex-column py-4 justify-center items-center gap-6  text-lg ">
               {navlinks}
             </ul>
           </div>
@@ -105,8 +118,8 @@ useEffect(()=>{
   !user ?
 
          <NavLink to='/Login' className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "bg-[#00cc66] btn  hover:bg-[#4a90e2] border-none" : ""}>
-              <button className='bg-[#00cc66] btn w-10 lg:w-16  hover:bg-[#4a90e2] border-none'>Login</button>
+              isPending ? "pending" : isActive ? "" : ""}>
+              <button className='hover:bg-[#00cc66] border-white border-[1px] btn w-10 lg:w-16 text-white  bg-[#4a90e2] '>Login</button>
             </NavLink>:<div className="dropdown dropdown-end">
 
               <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">

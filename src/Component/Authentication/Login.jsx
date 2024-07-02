@@ -155,6 +155,11 @@ const google=()=>{
         <div className="w-full bg-[#ff3366] rounded-2xl mt-10 lg:mt-0  px-6 py-3">
         <h1 className="text-3xl text-white text-center my-6 font-bold">Welcome Back ! </h1>          
           <img className="object-cover h-full  bg-cover rounded-l-lg" src={img} alt=""/>
+          <div>
+            <h1 className='py-4 text-gray-200 font-lg text-center'>
+                Admin Gmail : mama@mami.com Password: Tiberium22$
+            </h1>
+          </div>
     </div>
   </div>
 </section>

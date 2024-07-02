@@ -68,7 +68,7 @@ const MyFav = () => {
 
     return (
           <div className='max-w-5xl mx-auto '>
-        <Headings heading={" My Favourite Bio-Data's"} subheading={"Explore a curated collection of biodatas you've saved in the 'View My Request' section. These profiles have captured your interest and are potential matches for your journey in finding a life partner. Easily manage and keep track of your bookmarked biodatas here. Your saved selections are a personalized gallery, carefully chosen to align with your preferences and aspirations. Dive into this collection to discover profiles that resonate with you, bringing you one step closer to the perfect connection."}></Headings>
+        <Headings heading={" My Favourite Bio-Data's"} subheading={"In this section, you can view all the biodatas you have bookmarked. Easily access the profiles you are most interested in and keep track of your favorite matches. This personalized list ensures that you can quickly revisit and review the biodatas that caught your attention, making your search for a partner more organized and efficient."}></Headings>
       <div className="overflow-x-auto">
 <table className="table text-lg table-zebra">
 
@@ -82,21 +82,31 @@ const MyFav = () => {
     <th>Action</th>
   </tr>
 </thead>
-{
-    items?.map((item,index)=><tbody key={item._id}>
+{items && items.length > 0 ? (
+  items.map((item, index) => (
+    <tbody key={item._id}>
+      <tr>
+        <th>{index + 1}</th>
+        <td>{item.biodataId}</td>
+        <td>{item.name}</td>
+        <td>{item.permanentDivision}</td>
+        <td>{item.occupation}</td>
+        <td>
+          <button
+            onClick={() => handledelete(item.biodataId)}
+            className="btn btn-danger bg-[#ff3366] border-none"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  ))
+) : (
+  <tr className="text-center text-xl font-bold text-red-500 ">No Saved Favourite Data</tr>
+)}
 
-        <tr>
-          <th>{index +1}</th>
-          <td>{item.biodataId}</td>
-          <td>{item.name}</td>
-          <td>{item.permanentDivision}</td>
-          <td>{item.occupation}</td>
-          <td><button onClick={()=>handledelete(item.biodataId)} className="btn btn-danger bg-[#ff3366] border-none" >Delete</button></td>
-          
-        </tr>
-      
-      </tbody>)
-}
+ 
 </table>
 </div>
     </div>

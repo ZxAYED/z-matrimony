@@ -5,6 +5,7 @@ import useAxiosPublic from './../Hooks/useAxiosPublic';
 import { toast } from "react-toastify";
 import { useContext } from "react";
 import { AuthContext } from "./AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 
 
@@ -35,28 +36,42 @@ const Register = () => {
             }
             console.log(item, data.name, image);
 
-            handleRegister(data.email, data.password)
-                .then(res => {
-                    console.log(res);
-                })
-                .catch(err => {
-                    console.log(err);
-                })
-            axiosPublic.post('/users', item)
-                .then(res => toast.success(`${item.UserName} ID created successFully`, {
-                    position: "top-right",
-                    autoClose: 2000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                }))
-            navigate('/');
-        
-
-        console.log(data)
+            try {
+                const userCredential = await handleRegister(data.email, data.password);
+                const user = userCredential.user;
+                await updateProfile(user, {
+                  displayName: data.name,
+                  photoURL: res.data.data?.display_url || "",
+                });
+                console.log("Profile updated!");
+          
+              
+                await axiosPublic.post("/users", item);
+                toast.success(`${item.UserName} ID created successfully`, {
+                  position: "top-right",
+                  autoClose: 2000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "light",
+                });
+          
+                navigate("/");
+              } catch (error) {
+                console.log(error);
+                toast.error(`${error}`, {
+                  position: "top-right",
+                  autoClose: 2000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "light",
+                });
+              }
     }
     const Google = () => {
         handleGoogle()

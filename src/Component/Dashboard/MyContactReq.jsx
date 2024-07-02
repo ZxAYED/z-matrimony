@@ -74,21 +74,23 @@ const MyContactReq = () => {
     <th>Action</th>
   </tr>
 </thead>
-{
-    items?.map((item,index)=><tbody key={item._id}>
+{ items && items.length>0 ? (items?.map((item,index)=><tbody key={item._id}>
 
-        <tr>
-          <th>{index +1}</th>
-          <td>{item.name}</td>
-          <td>{item.biodataId}</td>
-          <td>{item.status}</td>
-          <td>{item.status==='available' ? item.phoneNumber :'Pending'}</td>
-          <td>{item.status==='available' ? item.contactEmail :'Pending'}</td>
-          <td><button onClick={()=>handledelete(item.biodataId)} className="btn btn-danger bg-[#ff3366] border-none" >Delete</button></td>
-          
-        </tr>
-      
-      </tbody>)
+<tr>
+  <th>{index +1}</th>
+  <td>{item.name}</td>
+  <td>{item.biodataId}</td>
+  <td>{item.status}</td>
+  <td>{item.status==='available' ? item.phoneNumber :'Pending'}</td>
+  <td>{item.status==='available' ? item.contactEmail :'Pending'}</td>
+  <td><button onClick={()=>handledelete(item.biodataId)} className="btn btn-danger bg-[#ff3366] border-none" >Delete</button></td>
+  
+</tr>
+
+</tbody>)): (
+  <tr className="text-center text-xl font-bold text-red-500 ">No Saved Requested Contact Data</tr>
+)
+    
 }
 </table>
 </div>

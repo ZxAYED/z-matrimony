@@ -7,8 +7,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import useUsers from "../Hooks/useUsers";
 import { useEffect } from "react";
-import { MdDashboard } from "react-icons/md"; 
-import { MdOutlineCreateNewFolder } from "react-icons/md";
+
 
 
 const DashBoard = () => {
@@ -43,7 +42,9 @@ const DashBoard = () => {
     }
 
     return (
-        <div className="flex  flex-col lg:flex-row">
+        <div  data-aos="fade-right"
+        data-aos-easing="linear"
+        data-aos-duration="200" className="flex  flex-col lg:flex-row">
             <section  className="bg-[#ff3366] p-6 min-h-screen ">
                 <div  className='flex justify-center  pt-5 items-center gap-2'>
                     <img className='w-10 h-10 rounded-[50%] object-cover' src={logo} alt="" />
@@ -109,9 +110,9 @@ const DashBoard = () => {
                 <div className="flex flex-col  items-left text-center ">
                     <p className='hover:text-white my-2 bg-[#33ccff] w-full p-2 rounded '>
                         <NavLink to='/' className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "" : ""
+                            isPending ? "pending" : isActive ? "" : "font-medium"
                         }>Home</NavLink></p>
-                    <button onClick={handleLogOut} className='hover:text-white my-2 bg-[#33ccff] w-full p-2 rounded '>
+                    <button onClick={handleLogOut} className='hover:text-white my-2 font-medium bg-[#33ccff] w-full p-2 rounded '>
                         Log Out</button>
 
                 </div>
