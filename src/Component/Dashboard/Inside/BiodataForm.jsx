@@ -97,7 +97,7 @@ const BiodataForm = () => {
  
         <div  >
       
-      <div className='text-black  rounded-2xl'>
+      <div className='text-black  rounded-2xl mb-10'>
             
 <form className='px-16 ' onSubmit={handlePost} > 
    

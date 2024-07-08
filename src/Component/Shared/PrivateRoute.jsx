@@ -18,7 +18,7 @@ const PrivateRoute = ({ children }) => {
     if (loading ) {
 
        return <>
-            <div className="flex flex-col justify-center items-center w-1/2 gap-5 p-2 mx-auto bg-white shadow-lg select-none sm:p-4 sm:h-64 rounded-2xl sm:flex-row ">
+            <div className="flex flex-col justify-center items-center w-1/2 gap-5 p-2 mx-auto mt-10 md:mt-20 bg-white shadow-lg select-none sm:p-4 sm:h-64 rounded-2xl sm:flex-row ">
                 <div className="bg-gray-200 h-52 sm:h-full sm:w-72 rounded-xl animate-pulse">
                 </div>
                 <div className="flex flex-col flex-1 gap-5 sm:p-2">

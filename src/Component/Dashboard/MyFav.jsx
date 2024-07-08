@@ -67,7 +67,7 @@ const MyFav = () => {
     }
 
     return (
-          <div className='max-w-5xl mx-auto '>
+          <div className='max-w-5xl mx-auto mb-10'>
         <Headings heading={" My Favourite Bio-Data's"} subheading={"In this section, you can view all the biodatas you have bookmarked. Easily access the profiles you are most interested in and keep track of your favorite matches. This personalized list ensures that you can quickly revisit and review the biodatas that caught your attention, making your search for a partner more organized and efficient."}></Headings>
       <div className="overflow-x-auto">
 <table className="table text-lg table-zebra">

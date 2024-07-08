@@ -105,12 +105,12 @@ const DashBoard = () => {
                 </div>
                 <hr className='h-2  data-aos="fade-down"
      data-aos-easing="linear"
-     data-aos-duration="800"  my-2 w-full  lg:w-[80%] mx-auto' />
+     data-aos-duration="800"  my-2 w-full  lg:w-[80%] mx-auto font-medium' />
 
                 <div className="flex flex-col  items-left text-center ">
-                    <p className='hover:text-white my-2 bg-[#33ccff] w-full p-2 rounded '>
+                    <p className='hover:text-white my-2 font-medium bg-[#33ccff] w-full p-2 rounded '>
                         <NavLink to='/' className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "" : "font-medium"
+                            isPending ? "pending" : isActive ? "font-medium" : "font-medium"
                         }>Home</NavLink></p>
                     <button onClick={handleLogOut} className='hover:text-white my-2 font-medium bg-[#33ccff] w-full p-2 rounded '>
                         Log Out</button>
