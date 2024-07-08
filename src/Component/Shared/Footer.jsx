@@ -21,7 +21,7 @@ export const Footer = () => {
             Welcome to TaqwaMate, where love finds its perfect match! Our mission is to connect hearts and build meaningful relationships. Explore our diverse range of services, from expert matchmaking to personalized event planning. Dive into inspiring success stories, discover helpful planning tips, and stay updated with the latest trends in weddings and matrimony.
             </p>
           </div>
-          <div className="grid grid-cols-2 ml-10 gap-4 md:col-span-1 lg:col-span-3">
+          <div className="grid grid-cols-2 ml-10 gap-4  md:col-span-3">
             <div>
               <p className="font-semibold text-gray-800">Categories</p>
               <ul className="mt-2 space-y-2">
@@ -112,7 +112,7 @@ export const Footer = () => {
           Vendor Recommendations
         </a>
       </li>
-      {/* Add more resource topics as needed */}
+
     </ul>
   </div>
     </ul>

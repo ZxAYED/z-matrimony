@@ -61,9 +61,9 @@ useEffect(()=>{
    
     return (
 
-        <section data-aos="flip-down" className="max-w-7xl mx-auto ">
+        <section data-aos="flip-down" className="max-w-7xl mx-auto  ">
             <div className="px-4 py-12   sm:px-6 md:px-12 lg:px-0 lg:py-24">
-                <div className=" gap-10 flex ">
+                <div className=" gap-10 md:flex ">
                     <div className="w-full   lg:w-[40%] rounded-xl">
 
                         <div className="relative w-full max-w-lg">
@@ -110,7 +110,7 @@ useEffect(()=>{
 
 
                     </div>
-                    <div className="w-[20%]">
+                    <div className="md:w-[20%] hidden  md:block">
                         <h1 className=" my-5 text-2xl font-bold">Related profiles-</h1>
                         {
                             genderData.map(data=> <AddvetiseCard key={data._id} data={data} ></AddvetiseCard>)
@@ -146,6 +146,13 @@ useEffect(()=>{
                        
                     </div>
             </div>
+            <div className="md:hidden  mx-10">
+                        <h1 className=" my-5 text-2xl font-bold">Related profiles-</h1>
+                        {
+                            genderData.map(data=> <AddvetiseCard key={data._id} data={data} ></AddvetiseCard>)
+                        }
+                    
+                    </div>
         </section>
 
     );
