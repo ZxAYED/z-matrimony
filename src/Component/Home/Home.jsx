@@ -131,23 +131,23 @@ const Home = () => {
                 <h1 className=" text-2xl py-2  font-bold text-[#ff3366]">
                   Solving Real-World Matrimonial Challenges{" "}
                 </h1>
-                <ul classname=" list-disc py-1">
+                <ul className=" list-disc py-1">
                   In a world full of choices, finding the right partner can be
                   daunting. Our website addresses this challenge by offering a
                   streamlined and effective platform. It's better than other
                   websites because it's clean, free from excessive ads, and
                   focuses on providing the best user experience. Here's how we
                   solve your problems:
-                  <li className='py-1'>
-                    1.  <span className='font-semibold'> Focused Search: </span>Efficient matching algorithms to find
+                  <li className='py-1 ml-4'>
+                     <span className='font-semibold'> Focused Search: </span>Efficient matching algorithms to find
                     compatible partners.
                   </li>
-                  <li className='py-1'>
-                    2.  <span className='font-semibold'> Ad-Free Experience: </span>Enjoy a clean, distraction-free
+                  <li className='py-1 ml-4'>
+                      <span className='font-semibold'> Ad-Free Experience: </span>Enjoy a clean, distraction-free
                     environment.
                   </li>
-                  <li className='py-1'>
-                    3. <span className='font-semibold'> Data Privacy:</span> No sharing of your personal information
+                  <li className='py-1 ml-4'>
+                   <span className='font-semibold'> Data Privacy:</span> No sharing of your personal information
                     without consent.
                   </li>
                 </ul>
