@@ -8,18 +8,18 @@ import Register from "../Authentication/Register";
 import Checkout from "../Biodatas/Checkout";
 import PrivateRoute from "../Shared/PrivateRoute";
 import DashBoard from "../Dashboard/DashBoard";
-import EditBioData from "../Dashboard/EditBioData";
-import ViewBiodata from "../Dashboard/ViewBiodata";
-import MyContactReq from "../Dashboard/MyContactReq";
-import MyFav from "../Dashboard/MyFav";
+import EditBioData from "../Dashboard/User/CreateBioData/EditBioData";
+import ViewBiodata from "../Dashboard/User/Edit&ViewBiodata/ViewBiodata";
+import MyContactReq from "../Dashboard/User/ContactRequest/MyContactReq";
+import MyFav from "../Dashboard/User/MyFavContact/MyFav";
 import AllUsers from "../Dashboard/Admin/AllUsers";
 import AdminDash from "../Dashboard/Admin/AdminDash";
 import AdminApprove from "../Dashboard/Admin/AdminApprove";
 import AdminContact from "../Dashboard/Admin/AdminContact";
 
-import Contact from "../Shared/Contact";
-import GotMarried from "../Dashboard/GotMarried";
-// import About from "../Shared/About";
+
+import GotMarried from "../Dashboard/User/GotMarried/GotMarried";
+import About from "../Shared/About";
 
 
  export const router = createBrowserRouter([
@@ -35,14 +35,11 @@ import GotMarried from "../Dashboard/GotMarried";
             path:'/Biodatas',
             element:<Biodatas/>,
         },
-        // {
-        //     path:'/About',
-        //     element:<About/>,
-        // },
         {
-            path:'/Contact',
-            element:<Contact/>,
+            path:'/About',
+            element:<About/>,
         },
+        
         {
             path:'/Login',
             element:<Login/>,

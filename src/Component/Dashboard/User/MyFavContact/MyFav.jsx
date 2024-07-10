@@ -1,13 +1,13 @@
 
-import useAxiosSecure from "../Hooks/useAxiosSecure";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useEffect, useState } from "react";
-import Headings from "./Headings";
-
+import Headings from "../../Headings";
+import { useSpring, animated  } from '@react-spring/web';
 import Swal from "sweetalert2";
 
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
-import { AuthContext } from "../Authentication/AuthProvider";
+import { AuthContext } from "../../../Authentication/AuthProvider";
 
 
 
@@ -65,9 +65,13 @@ const MyFav = () => {
             }
           });
     }
-
+    const fadeIn = useSpring({
+      opacity: 1,
+      from: { opacity: 0 },
+      config: { duration: 500 },
+    });
     return (
-          <div className='max-w-5xl mx-auto mb-10'>
+          <animated.div style={fadeIn} className='max-w-5xl mx-auto mb-10'>
         <Headings heading={" My Favourite Bio-Data's"} subheading={"In this section, you can view all the biodatas you have bookmarked. Easily access the profiles you are most interested in and keep track of your favorite matches. This personalized list ensures that you can quickly revisit and review the biodatas that caught your attention, making your search for a partner more organized and efficient."}></Headings>
       <div className="overflow-x-auto">
 <table className="table text-lg table-zebra">
@@ -109,7 +113,7 @@ const MyFav = () => {
  
 </table>
 </div>
-    </div>
+    </animated.div>
     );
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import Headings from './Headings';
-import BiodataForm from './Inside/BiodataForm';
+import Headings from '../../Headings';
+import BiodataForm from './BiodataForm';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';

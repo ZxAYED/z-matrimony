@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import useAxiosSecure from './../Hooks/useAxiosSecure';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useContext } from 'react';
-import { AuthContext } from '../Authentication/AuthProvider';
+import { AuthContext } from '../../../Authentication/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Headings from './Headings';
-import Butoon from '../Shared/Butoon';
+import Headings from '../../Headings';
+import Butoon from '../../../Shared/Butoon';
 import { useEffect } from 'react';
 import ViewForm from './ViewForm';
 import { useQuery } from '@tanstack/react-query';

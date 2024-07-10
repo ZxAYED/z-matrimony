@@ -99,7 +99,7 @@ const variants = {
       whileTap={{ scale: 0.95 }}><NavLink to='/Contact' className={({ isActive, isPending }) =>
       isPending ? "pending" : isActive ? "text-white" : ""
     }>
-      <li className='hover:text-white font-medium text-xl'>Contact Us</li></NavLink> </motion.div>
+      <li className='hover:text-white font-medium text-xl'>Dating Tips & tricks</li></NavLink> </motion.div>
 
 
 
