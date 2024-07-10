@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
-import { AuthContext } from "../Authentication/AuthProvider";
-import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { AuthContext } from "../../Authentication/AuthProvider";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { toast } from "react-toastify";
 import { CardElement, Elements, useElements, useStripe } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";

@@ -153,7 +153,7 @@ const Register = () => {
                                                     </div>
 
                                                     <div>
-                                                        <button type="submit" className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-[#ff3366] rounded-xl hover:bg-[#4a90e2] focus:outline-none focus:ring-2 focus:ring-offset-2 ">Register</button>
+                                                        <button type="submit" className="flex items-center justify-center w-full px-10 py-4 text-base font-semibold text-center text-white transition duration-500 ease-in-out transform bg-[#ff3366] rounded-xl hover:bg-[#4a90e2] focus:outline-none focus:ring-2 focus:ring-offset-2 ">Register</button>
                                                     </div>
                                                 </form>
                                                 <div className="relative my-4">
@@ -165,7 +165,7 @@ const Register = () => {
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <button onClick={Google} className="w-full items-center block px-10 py-3.5 text-base font-medium bg-[#ff3366]  text-center  text-white transition duration-500 ease-in-out transform  shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                                                    <button onClick={Google} className="w-full items-center block px-10 py-3.5 text-base font-semibold bg-[#ff3366]  text-center  text-white transition duration-500 ease-in-out transform  shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                                                         <div className="flex items-center justify-center">
                                                             <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className="w-6 h-6" viewBox="0 0 48 48">
                                                                 <defs>
@@ -183,7 +183,7 @@ const Register = () => {
                                                         </div>
                                                     </button>
                                                 </div>
-                                                <Link to='/Login'><p className='mt-6 text-center '>Already have an account in <span className='text-[#ff3366] text-semibold '>TaqWaMate</span>? Try to   <span className='text-[#4a90e2] text-semibold'>Login </span> in here</p></Link>
+                                                <Link to='/Login'><p className='mt-6 text-center '>Already have an account in <span className='text-[#ff3366] font-semibold '>TaqWaMate</span>? Try to   <span className='text-[#4a90e2] font-semibold'>Login </span> in here</p></Link>
                                             </div>
                                         </div>
                                     </div>

@@ -5,7 +5,7 @@ import Biodatas from "../Biodatas/Biodatas";
 import SingleCard from "../Home/SingleCard";
 import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
-import Checkout from "../Biodatas/Checkout";
+import Checkout from "../Shared/Checkout/Checkout";
 import PrivateRoute from "../Shared/PrivateRoute";
 import DashBoard from "../Dashboard/DashBoard";
 import EditBioData from "../Dashboard/User/CreateBioData/EditBioData";

@@ -108,7 +108,7 @@ const google=()=>{
                             </div>
 
                             <div>
-                                <button type="submit" className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-[#ff3366] rounded-xl hover:bg-[#4a90e2] focus:outline-none focus:ring-2 focus:ring-offset-2 ">Sign in</button>
+                                <button type="submit" className="flex items-center justify-center w-full px-10 py-4 text-base font-semibold text-center text-white transition duration-500 ease-in-out transform bg-[#ff3366] rounded-xl hover:bg-[#4a90e2] focus:outline-none focus:ring-2 focus:ring-offset-2  ">Sign in</button>
                             </div>
                         </form>
                         <div className="relative my-4">
@@ -134,11 +134,11 @@ const google=()=>{
                                         <path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"></path>
                                         <path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"></path>
                                     </svg>
-                                    <span className="ml-4"> Log in with Google</span>
+                                    <span className="ml-4 font-semibold"> Log in with Google</span>
                                 </div>
                             </button>
                         </div>
-                        <Link to='/Register'><p className='mt-6 text-center '>New to <span className='text-[#ff3366] text-semibold '>TaqWaMate</span>? Click here to  <span className='text-[#4a90e2] text-semibold'>Register</span></p></Link>
+                        <Link to='/Register'><p className='mt-6 text-center '>New to <span className='text-[#ff3366] font-semibold '>TaqWaMate</span>? Click here to  <span className='text-[#4a90e2] font-semibold'>Register</span></p></Link>
                     </div>
                 </div>
             </div>
