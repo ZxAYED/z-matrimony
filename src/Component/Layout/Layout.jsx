@@ -20,6 +20,7 @@ import AdminContact from "../Dashboard/Admin/AdminContact";
 
 import GotMarried from "../Dashboard/User/GotMarried/GotMarried";
 import About from "../Shared/About";
+import Tipstricks from "../DatingTips/Tips&tricks";
 
 
  export const router = createBrowserRouter([
@@ -47,6 +48,10 @@ import About from "../Shared/About";
         {
             path:'/Register',
             element:<Register/>,
+        },
+        {
+            path:'/tips&tricks',
+            element:<Tipstricks/>,
         },
         {
             path:'/singleCard/:id',

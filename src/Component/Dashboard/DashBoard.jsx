@@ -34,7 +34,7 @@ const DashBoard = () => {
     });
     navigate("/");
   };
-
+console.log(email);
   return (
     <div
       data-aos="fade-right"
