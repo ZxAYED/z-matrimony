@@ -96,7 +96,7 @@ const variants = {
     <motion.div  layout
   variants={variants}
       whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}><NavLink to='/Contact' className={({ isActive, isPending }) =>
+      whileTap={{ scale: 0.95 }}><NavLink to='/tips&tricks' className={({ isActive, isPending }) =>
       isPending ? "pending" : isActive ? "text-white" : ""
     }>
       <li className='hover:text-white font-medium text-xl'>Dating Tips & tricks</li></NavLink> </motion.div>
